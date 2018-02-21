@@ -1,1 +1,40 @@
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  margin-top: 100px;
+  grid-auto-rows: minmax(100px, auto);
+}
 
+.navbar {
+  text-align: center;
+  background-color: yellow;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.challenge-list {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.challenge-card {
+  grid-column: 1fr;
+}
+
+.loginform {
+  grid-column-start: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-end: 6;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#submit {
+  margin: 5px;
+}

@@ -1,4 +1,16 @@
-.main-container {
+body {
+  background-color: #53917e;
+}
+
+h1 {
+  font-family: "Allerta Stencil";
+}
+
+p {
+  font-family: "Mako";
+}
+
+.loggedout-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
@@ -7,14 +19,15 @@
 }
 
 .navbar {
+  color: white;
   text-align: center;
-  background-color: yellow;
   width: 100%;
   position: absolute;
   top: 0;
+  background-color: #601700;
 }
 
-.challenge-list {
+.loggedout-container > .challenge-list {
   grid-column-start: 1;
   grid-column-end: 4;
   display: grid;
@@ -22,11 +35,22 @@
   grid-gap: 10px;
 }
 
+.challenge-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 100px;
+  margin-right: 10px;
+  grid-auto-rows: minmax(200px, auto);
+}
+
 .challenge-card {
   grid-column: 1fr;
   border: 1px solid black;
   padding: 40px;
   margin-left: 10px;
+  background-color: #e6efe9;
+  text-align: center;
 }
 
 .loginform {
@@ -37,6 +61,7 @@
   height: 200px;
   display: inline-block;
   margin-right: 10px;
+  background-color: #e6efe9;
 }
 
 #username,

@@ -1,11 +1,11 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import ChallengeList from "./ChallengeList";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class MainContainer extends React.Component {
   state = {
     challenges: [],
-    showing: "home",
     user: null
   };
 
@@ -34,11 +34,9 @@ class MainContainer extends React.Component {
 
   render() {
     return (
-      <div className="main-container">
+      <div className="loggedout-container">
         <ChallengeList challenges={this.state.challenges} />
-
-        {this.state.user ? null : (
-          <LoginForm handleSubmit={this.handleLoginSubmit} />
+        <LoginForm handleSubmit={this.handleLoginSubmit} />
         )}
       </div>
     );

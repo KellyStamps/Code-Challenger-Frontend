@@ -1,9 +1,9 @@
 import React from "react";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   return (
     <div className="navbar">
-      <h1>Challenger</h1>
+      <h1>CODE CHALLENGER</h1>
     </div>
   );
 };

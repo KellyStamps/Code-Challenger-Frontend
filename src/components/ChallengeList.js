@@ -1,5 +1,6 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
+import { BrowserRouter as Router, Route, Redirect } from "react-router";
 
 class ChallengeList extends React.Component {
   state = {
@@ -14,13 +15,18 @@ class ChallengeList extends React.Component {
   }
 
   handleClickedCard = event => {
-    fetch(`http://localhost:3000/api/v1/challenges/${event.target.id}`).then(
-      res => res.json()
-    );
+    fetch(`http://localhost:3000/api/v1/challenges/${event.target.id}`)
+      .then(res => res.json())
+      .then(json => this.props.handleClickedCard(json.challenge));
   };
 
   render() {
-    return (
+    return this.props.challenge ? (
+      <Redirect
+        from="/challenges"
+        to={`/challenges/${this.props.challenge.id}`}
+      />
+    ) : (
       <div className="challenge-list">
         {this.state.challenges.map(chal => (
           <ChallengeCard

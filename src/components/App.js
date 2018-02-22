@@ -8,15 +8,20 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    user: null
+    user: null,
+    challengeShow: null
   };
 
   loggedInHelper = arg => {
-    console.log(arg);
     this.setState({ user: arg });
   };
 
+  handleClickedCard = arg => {
+    this.setState({ challengeShow: arg });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <Router>
         <div className="App">
@@ -33,8 +38,24 @@ class App extends Component {
               );
             }}
           />
-          <Route exact path="/challenges" component={ChallengeList} />
-          <Route path="/challenges/:id" component={ChallengeShow} />
+          <Route
+            exact
+            path="/challenges"
+            render={props => {
+              return (
+                <ChallengeList
+                  handleClickedCard={this.handleClickedCard}
+                  challenge={this.state.challengeShow}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/challenges/:id"
+            render={props => {
+              return <ChallengeShow challenge={this.state.challengeShow} />;
+            }}
+          />
         </div>
       </Router>
     );

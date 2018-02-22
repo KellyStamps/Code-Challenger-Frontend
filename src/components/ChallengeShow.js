@@ -6,11 +6,7 @@ class ChallengeShow extends React.Component {
   };
 
   componentDidMount() {
-    fetch(
-      `http://localhost:3000/api/v1/challenges/${this.props.location.pathname.slice(
-        12
-      )}`
-    )
+    fetch(`http://localhost:3000/api/v1/challenges/${this.props.challenge.id}`)
       .then(res => res.json())
       .then(json => this.setState({ challenge: json.challenge }));
   }

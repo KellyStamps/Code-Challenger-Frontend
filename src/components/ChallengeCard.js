@@ -1,9 +1,11 @@
 import React from "react";
 
-const ChallengeCard = ({ challenge }) => {
+const ChallengeCard = ({ challenge, handleClick }) => {
   return (
     <div className="challenge-card">
-      <p>{challenge.content}</p>
+      <p id={challenge.id} onClick={handleClick}>
+        {challenge.content}
+      </p>
       <p>Rating: {challenge.rating}/10</p>
     </div>
   );

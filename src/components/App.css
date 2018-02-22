@@ -1,5 +1,6 @@
 body {
-  background-color: #53917e;
+  background-color: #3399cc;
+  padding-top: 100px;
 }
 
 h1 {
@@ -14,8 +15,10 @@ p {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
-  margin-top: 100px;
   grid-auto-rows: minmax(100px, auto);
+}
+
+.challenge-show {
 }
 
 .navbar {
@@ -24,31 +27,21 @@ p {
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: #601700;
-}
-
-.loggedout-container > .challenge-list {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  background-color: #001489;
 }
 
 .challenge-list {
+  grid-column-start: 1;
+  grid-column-end: 4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  margin-top: 100px;
-  margin-right: 10px;
-  grid-auto-rows: minmax(200px, auto);
 }
 
 .challenge-card {
   grid-column: 1fr;
   border: 1px solid black;
   padding: 40px;
-  margin-left: 10px;
   background-color: #e6efe9;
   text-align: center;
 }

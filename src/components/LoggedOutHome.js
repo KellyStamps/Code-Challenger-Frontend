@@ -1,12 +1,11 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import ChallengeList from "./ChallengeList";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router";
 
-class MainContainer extends React.Component {
+class LoggedOutHome extends React.Component {
   state = {
-    challenges: [],
-    user: null
+    challenges: []
   };
 
   componentDidMount() {
@@ -29,11 +28,17 @@ class MainContainer extends React.Component {
       })
     })
       .then(res => res.json())
-      .then(json => this.setState({ user: json }));
+      .then(json => this.props.redirectHelper(json));
+  };
+
+  loggedIn = () => {
+    this.props.redirectHelper(this.state.user);
   };
 
   render() {
-    return (
+    return this.props.user ? (
+      <Redirect to="/challenges" />
+    ) : (
       <div className="loggedout-container">
         <ChallengeList challenges={this.state.challenges} />
         <LoginForm handleSubmit={this.handleLoginSubmit} />
@@ -43,4 +48,4 @@ class MainContainer extends React.Component {
   }
 }
 
-export default MainContainer;
+export default LoggedOutHome;

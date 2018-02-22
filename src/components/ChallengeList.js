@@ -13,10 +13,21 @@ class ChallengeList extends React.Component {
       .then(data => this.setState({ challenges: data.challenges }));
   }
 
+  handleClickedCard = event => {
+    fetch(`http://localhost:3000/api/v1/challenges/${event.target.id}`).then(
+      res => res.json()
+    );
+  };
+
   render() {
     return (
       <div className="challenge-list">
-        {this.state.challenges.map(chal => <ChallengeCard challenge={chal} />)}
+        {this.state.challenges.map(chal => (
+          <ChallengeCard
+            handleClick={this.handleClickedCard}
+            challenge={chal}
+          />
+        ))}
       </div>
     );
   }

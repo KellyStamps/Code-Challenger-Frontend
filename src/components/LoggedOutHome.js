@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import ChallengeList from "./ChallengeList";
-import { BrowserRouter as Router, Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 class LoggedOutHome extends React.Component {
   state = {
@@ -24,7 +24,7 @@ class LoggedOutHome extends React.Component {
       },
       body: JSON.stringify({
         username: event.target.username.value,
-        password: event.target.password.value
+        password: event.target.password.value,
       })
     })
       .then(res => res.json())

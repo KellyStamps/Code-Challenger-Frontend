@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
+import ProfileContainer from "./ProfileContainer";
 import ChallengeList from "./ChallengeList";
 import LoggedOutHome from "./LoggedOutHome";
 import "./App.css";
+
 
 class App extends Component {
   state = {
@@ -21,11 +23,10 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <Router>
         <div className="App">
-          <NavBar />
+          <NavBar user={this.state.user} />
           <Route
             exact
             path="/"
@@ -53,7 +54,13 @@ class App extends Component {
           <Route
             path="/challenges/:id"
             render={props => {
-              return <ChallengeShow challenge={this.state.challengeShow} />;
+              return <ChallengeShow challenge={this.state.challengeShow} user={this.state.user} />;
+            }}
+          />
+          <Route
+            path="/users/:id"
+            render={props => {
+              return <ProfileContainer user={this.state.user} />;
             }}
           />
         </div>

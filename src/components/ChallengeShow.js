@@ -1,25 +1,20 @@
 import React from "react";
+import { Redirect } from "react-router";
 
 class ChallengeShow extends React.Component {
   state = {
-    challenge: null
+    challenge: this.props.challenge,
+    user: this.props.user
   };
 
-  componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/challenges/${this.props.challenge.id}`)
-      .then(res => res.json())
-      .then(json => this.setState({ challenge: json.challenge }));
-  }
-
   render() {
-    console.log(this.state.challenge);
-    return this.state.challenge ? (
+    return this.state.challenge && this.state.user ? (
       <div className="challenge-show">
         <h2>{this.state.challenge.content}</h2>
         <h4>Rating: {this.state.challenge.rating}/10</h4>
       </div>
     ) : (
-      <div />
+      <Redirect to='/' />
     );
   }
 }

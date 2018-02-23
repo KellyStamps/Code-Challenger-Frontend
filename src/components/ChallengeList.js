@@ -1,6 +1,6 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
-import { BrowserRouter as Router, Route, Redirect } from "react-router";
+import { Redirect } from "react-router";
 
 class ChallengeList extends React.Component {
   state = {
@@ -30,6 +30,7 @@ class ChallengeList extends React.Component {
       <div className="challenge-list">
         {this.state.challenges.map(chal => (
           <ChallengeCard
+            key={chal.id}
             handleClick={this.handleClickedCard}
             challenge={chal}
           />

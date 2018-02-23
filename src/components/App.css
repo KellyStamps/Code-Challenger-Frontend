@@ -30,6 +30,26 @@ p {
   background-color: #001489;
 }
 
+.navbar > ul {
+  list-style-type: none;
+}
+
+.navbar > ul > li {
+  display: inline;
+  padding: 20px;
+}
+
+.navbar > ul > li > a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar > ul > li > a:hover {
+  color: black;
+  background-color: white;
+}
+
 .challenge-list {
   grid-column-start: 1;
   grid-column-end: 4;
@@ -58,11 +78,26 @@ p {
 }
 
 #username,
-#password {
+#password, #bio {
   display: block;
   margin: auto;
 }
 
 #submit {
   margin: 5px;
+}
+
+.profile-container {
+  text-align: center;
+  margin: auto;
+}
+
+.edit-user-form {
+  border: 1px solid black;
+  text-align: center;
+  height: 200px;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #e6efe9;
+  padding: 10px;
 }

@@ -12,10 +12,11 @@ import registerServiceWorker from "./registerServiceWorker";
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // );
 
+    // <App store={store}/>
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
-    // <App store={store}/>
   </BrowserRouter>,
   document.getElementById("root")
 );

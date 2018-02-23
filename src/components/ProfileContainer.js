@@ -21,15 +21,16 @@ class ProfileContainer extends React.Component {
     })
     .then(res => res.json())
     .then(console.log)
-    
-    
   }
   
+  // dateHelper = () => {
+  //   return this.props.user.cake_day.toLocaleDateTime('en-US')
+  // }
+  
   render() {
-    console.log(this.props.user)
     return this.props.user ? 
     (
-      <div id="profile-container">
+      <div className="profile-container">
         <h1>{this.props.user.username}</h1>
         <h4>Joined on: {this.props.user.cake_day}</h4>
         <EditProfileForm user={this.props.user}/>

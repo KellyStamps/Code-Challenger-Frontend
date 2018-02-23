@@ -10,8 +10,8 @@ const NavBar = ({ user, visitProfile }) => {
     <div className="navbar">
       <h1>CODE CHALLENGER</h1>
       <ul>
-        <li><Link to={`/users/${user.id}`}>My Profile</Link></li>
-        <li><Link to={`/challenges`}>Challenges</Link></li>
+        <li><Link to={`/users/${user.id}`}>MY PROFILE</Link></li>
+        <li><Link to={`/challenges`}>CHALLENGES</Link></li>
       </ul>
     </div>
   );

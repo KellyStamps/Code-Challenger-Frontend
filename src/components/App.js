@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
 import ProfileContainer from "./ProfileContainer";
@@ -24,47 +24,32 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <NavBar user={this.state.user} />
-          <Route
-            exact
-            path="/"
+      <div className="App">
+        <NavBar user={this.state.user} />
+          
+        <Switch>
+          <Route exact path="/"
             render={props => {
-              return (
-                <LoggedOutHome
-                  user={this.state.user}
-                  redirectHelper={this.loggedInHelper}
-                />
-              );
-            }}
-          />
-          <Route
-            exact
-            path="/challenges"
-            render={props => {
-              return (
-                <ChallengeList
-                  handleClickedCard={this.handleClickedCard}
-                  challenge={this.state.challengeShow}
-                />
-              );
-            }}
-          />
+            return <LoggedOutHome user={this.state.user} redirectHelper={this.loggedInHelper}/>}}
+            />
+          
           <Route
             path="/challenges/:id"
             render={props => {
-              return <ChallengeShow challenge={this.state.challengeShow} user={this.state.user} />;
-            }}
-          />
-          <Route
-            path="/users/:id"
+            return <ChallengeShow challenge={this.state.challengeShow} user={this.state.user} />}}
+            />
+            
+          <Route exact path="/challenges"
             render={props => {
-              return <ProfileContainer user={this.state.user} />;
-            }}
+            return <ChallengeList handleClickedCard={this.handleClickedCard} challenge={this.state.challengeShow}/>}}
           />
-        </div>
-      </Router>
+          
+          <Route path="/users/:id"
+            render={props => {
+            return <ProfileContainer user={this.state.user} />}}
+          />
+        </Switch>
+      </div>
     );
   }
 }

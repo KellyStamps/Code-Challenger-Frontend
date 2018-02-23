@@ -2,7 +2,7 @@ import React from "react";
 
 const EditProfileForm = ({ user, handleSubmit }) => {
   return (
-    <div className="loginform">
+    <div className="edit-user-form">
       <p>Edit Profile</p>
       <form onSubmit={handleSubmit}>
         <input type="text" id="username" placeholder={user.username} />

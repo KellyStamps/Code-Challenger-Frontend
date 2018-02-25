@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
+import {fetchChallenges} from '../actions/challenges'
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
 import ProfileContainer from "./ProfileContainer";
@@ -10,13 +13,13 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    user: null,
     challengeShow: null
   };
+  
+  // componentDidMount() {
+  //   this.props.fetchChallenges()
+  // }
 
-  loggedInHelper = arg => {
-    this.setState({ user: arg });
-  };
 
   handleClickedCard = arg => {
     this.setState({ challengeShow: arg });
@@ -25,18 +28,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar user={this.state.user} />
+        <NavBar />
           
         <Switch>
           <Route exact path="/"
-            render={props => {
-            return <LoggedOutHome user={this.state.user} redirectHelper={this.loggedInHelper}/>}}
-            />
+            component={LoggedOutHome}/>
           
           <Route
             path="/challenges/:id"
             render={props => {
-            return <ChallengeShow challenge={this.state.challengeShow} user={this.state.user} />}}
+            return <ChallengeShow challenge={this.state.challengeShow} />}}
             />
             
           <Route exact path="/challenges"
@@ -45,13 +46,16 @@ class App extends Component {
           />
           
           <Route path="/users/:id"
-            render={props => {
-            return <ProfileContainer user={this.state.user} />}}
-          />
+            component={ProfileContainer}/>
+            
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {challenges: state.challenges}
+}
+
+export default withRouter(connect(mapStateToProps)(App));

@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
 
 const NavBar = ({ user, visitProfile }) => {
-  return user == null ? (
+  console.log(this.props)
+  return user == undefined ? (
     <div className="navbar">
       <h1>CODE CHALLENGER</h1>
     </div>
@@ -16,4 +18,9 @@ const NavBar = ({ user, visitProfile }) => {
     </div>
   );
 };
-export default NavBar;
+
+const mapStateToProps = (state) => {
+  return {user: state[0]}
+}
+
+export default connect(mapStateToProps)(NavBar);

@@ -1,6 +1,7 @@
 import React from "react";
 import EditProfileForm from './EditProfileForm'
 import { Redirect } from "react-router";
+import { connect } from 'react-redux';
 
 class ProfileContainer extends React.Component {
   
@@ -23,22 +24,19 @@ class ProfileContainer extends React.Component {
     .then(console.log)
   }
   
-  // dateHelper = () => {
-  //   return this.props.user.cake_day.toLocaleDateTime('en-US')
-  // }
-  
   render() {
-    return this.props.user ? 
-    (
+    console.log(this.prop)
+    return (
       <div className="profile-container">
         <h1>{this.props.user.username}</h1>
         <h4>Joined on: {this.props.user.cake_day}</h4>
         <EditProfileForm user={this.props.user}/>
-      </div>
-    ) : (
-      <Redirect to='/'/>
-    )
+      </div>)
   }
 }
 
-export default ProfileContainer;
+const mapStateToProps = (state) => {
+  return {user: state[0]}
+}
+
+export default connect(mapStateToProps) (ProfileContainer);

@@ -2,50 +2,34 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import ChallengeList from "./ChallengeList";
 import { Redirect } from "react-router";
+import {connect} from 'react-redux'
+import {addUser} from '../actions/users'
 
 class LoggedOutHome extends React.Component {
-  state = {
-    challenges: []
-  };
-
-  componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/challenges`)
-      .then(res => res.json())
-      .then(data => this.setState({ challenges: data.challenges }));
-  }
-
-  handleLoginSubmit = event => {
-    event.preventDefault();
-    fetch(`http://localhost:3000/api/v1/users`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: event.target.username.value,
-        password: event.target.password.value,
-      })
-    })
-      .then(res => res.json())
-      .then(json => this.props.redirectHelper(json));
-  };
-
-  loggedIn = () => {
-    this.props.redirectHelper(this.state.user);
-  };
+  // state = {
+  //   challenges: []
+  // };
+  // 
+  // componentDidMount() {
+  //   fetch(`http://localhost:3000/api/v1/challenges`)
+  //     .then(res => res.json())
+  //     .then(data => this.setState({ challenges: data.challenges }));
+  // }
 
   render() {
-    return this.props.user ? (
-      <Redirect to="/challenges" />
-    ) : (
+    console.log(this.props)
+    return (
       <div className="loggedout-container">
-        <ChallengeList challenges={this.state.challenges} />
-        <LoginForm handleSubmit={this.handleLoginSubmit} />
-        )}
+        <ChallengeList challenges={this.props.challenges} />
+        {this.props.user.length > 0 ? null : <LoginForm />}
+        
       </div>
     );
   }
 }
 
-export default LoggedOutHome;
+const mapStateToProps = (state) => {
+  return {user: state}
+}
+
+export default connect (mapStateToProps, {addUser})(LoggedOutHome);

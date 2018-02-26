@@ -9,11 +9,7 @@ class ChallengeList extends React.Component {
       return this.props.user ? (
       <div className="challenge-list">
         {this.props.challenges.map(chal => (
-          <ChallengeCard
-            key={chal.id}
-            handleClick={this.handleClickedCard}
-            challenge={chal}
-          />
+          <ChallengeCard challenge={chal} key={chal.id}/>
         ))}
       </div>
     ) : (
@@ -23,7 +19,7 @@ class ChallengeList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.users.user, challenges: state.challenges.challenges}
+  return {...state.users, ...state.challenges}
 }
 
 export default connect(mapStateToProps)(ChallengeList);

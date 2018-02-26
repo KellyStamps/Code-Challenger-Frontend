@@ -7,19 +7,18 @@ import {Redirect} from 'react-router-dom';
 class LoggedOutHome extends React.Component {
 
   render() {
-    return this.props.user ? (<Redirect to='/challenges'/>)
+    return this.props.user ? (<Redirect to={`/users/${this.props.user.id}`}/>)
     :
-    (
-      <div className="loggedout-container">
+    (<div className="loggedout-container">
         <SmallChallengeList/>
-        {this.props.user == null ? <LoginForm /> : null }
+        <LoginForm /> 
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.users.user}
+  return {...state.users}
 }
 
 export default connect (mapStateToProps)(LoggedOutHome);

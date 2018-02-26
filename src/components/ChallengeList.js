@@ -2,35 +2,13 @@ import React from "react";
 import ChallengeCard from "./ChallengeCard";
 import { Redirect } from "react-router";
 import { connect } from 'react-redux';
-// import {showChallenge} from '../actions/challenges'
 
 class ChallengeList extends React.Component {
-  state = {
-    challenges: []
-  };
-
-  componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/challenges`)
-      .then(res => res.json())
-      .then(data => this.setState({ challenges: data.challenges }));
-  }
-
-  // handleClickedCard = event => {
-  //   fetch(`http://localhost:3000/api/v1/challenges/${event.target.id}`)
-  //     .then(res => res.json())
-  //     .then(json => showChallenge(json.challenge));
-  // };
 
   render() {
-    console.log(this.props)
-    return this.props.challenge ? (
-      <Redirect
-        from="/challenges"
-        to={`/challenges/${this.props.challenge.id}`}
-      />
-    ) : (
+      return (
       <div className="challenge-list">
-        {this.state.challenges.map(chal => (
+        {this.props.challenges.map(chal => (
           <ChallengeCard
             key={chal.id}
             handleClick={this.handleClickedCard}
@@ -43,7 +21,7 @@ class ChallengeList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.users.user, showChallenge: state.challenges.showChallenge }
+  return {user: state.users.user, challenges: state.challenges.challenges}
 }
 
 export default connect(mapStateToProps)(ChallengeList);

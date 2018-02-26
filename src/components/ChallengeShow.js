@@ -1,21 +1,20 @@
 import React from "react";
-import { Redirect } from "react-router";
 import { connect } from 'react-redux';
 
 class ChallengeShow extends React.Component {
   
   render() {
-    return this.props.challenge ? (
+    return this.props.showChallenge ? (
       <div className="challenge-show">
-        <h2>{this.state.challenge.content}</h2>
-        <h4>Rating: {this.state.challenge.rating}/10</h4>
+        <h2>{this.props.showChallenge.content}</h2>
+        <h4>Rating: {this.props.showChallenge.rating}/10</h4>
       </div>
     ) : (<div className="challenge-show"><h1>Nope</h1></div>)
   }
 }
 
 const mapStateToProps = (state) => {
-  return {user: state.users.user, challenge: state.challenges.showChallenge }
+  return {...state.users, ...state.challenges}
 }
 
 export default connect(mapStateToProps)(ChallengeShow);

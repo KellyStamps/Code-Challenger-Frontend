@@ -1,7 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import ChallengeList from "./ChallengeList";
-import { Redirect } from "react-router";
 import {connect} from 'react-redux'
 
 class LoggedOutHome extends React.Component {
@@ -19,15 +18,14 @@ class LoggedOutHome extends React.Component {
     return (
       <div className="loggedout-container">
         <ChallengeList challenges={this.props.challenges} />
-        {this.props.user.length > 0 ? null : <LoginForm />}
-        
+        {this.props.user == null ? <LoginForm /> : null }
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  return {user: state}
+  return {user: state.users.user}
 }
 
 export default connect (mapStateToProps)(LoggedOutHome);

@@ -12,18 +12,13 @@ import "./App.css";
 
 
 class App extends Component {
-  state = {
-    challengeShow: null
-  };
   
-  // componentDidMount() {
-  //   this.props.fetchChallenges()
-  // }
-
-  handleClickedCard = arg => {
-    this.setState({ challengeShow: arg });
-  };
-
+  componentDidMount() {
+    fetch(`http://localhost:3000/api/v1/challenges`)
+      .then(res => res.json())
+      .then(data => this.props.fetchChallenges(data.challenges))
+  }
+  
   render() {
     return (
       <div className="App">
@@ -36,12 +31,13 @@ class App extends Component {
           <Route
             path="/challenges/:id"
             render={props => {
-            return <ChallengeShow challenge={this.state.challengeShow} />}}
+            let challenge = this.props.challenges.find(chal => chal.id === props.match.params.id)   
+            return <ChallengeShow challenge={challenge}/>}}
             />
             
           <Route exact path="/challenges"
             render={props => {
-            return <ChallengeList handleClickedCard={this.handleClickedCard} challenge={this.state.challengeShow}/>}}
+            return <ChallengeList />}}
           />
           
           <Route path="/users/:id"
@@ -53,4 +49,8 @@ class App extends Component {
   }
 }
 
-export default withRouter((App));
+const mapStateToProps =(state)=> {
+  return {...state.challenges}
+}
+
+export default withRouter(connect(mapStateToProps, {fetchChallenges})(App));

@@ -1,6 +1,5 @@
 import React from "react";
 import EditProfileForm from './EditProfileForm'
-import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 

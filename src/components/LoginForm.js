@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginform">
-        <p>Login or Sign Up to Start!</p>
+        <h3>Login or Sign Up to Start!</h3>
         {this.state.error ? <h3 className='error'>Username or Password Incorrect</h3> : null}
         <form onSubmit={this.handleSubmit}>
           <input 

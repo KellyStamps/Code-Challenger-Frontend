@@ -1,26 +1,20 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import ChallengeList from "./ChallengeList";
+import SmallChallengeList from "./SmallChallengeList";
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom';
 
 class LoggedOutHome extends React.Component {
-  // state = {
-  //   challenges: []
-  // };
-  // 
-  // componentDidMount() {
-  //   fetch(`http://localhost:3000/api/v1/challenges`)
-  //     .then(res => res.json())
-  //     .then(data => this.setState({ challenges: data.challenges }));
-  // }
 
   render() {
-    return (
+    return this.props.user ? (<Redirect to='/challenges'/>)
+    :
+    (
       <div className="loggedout-container">
-        <ChallengeList challenges={this.props.challenges} />
+        <SmallChallengeList/>
         {this.props.user == null ? <LoginForm /> : null }
       </div>
-    );
+    )
   }
 }
 

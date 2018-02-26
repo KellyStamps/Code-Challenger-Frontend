@@ -6,7 +6,6 @@ export const fetchChallenges = (challenges) => {
 }
 
 export const showChallenge = (challenge) => {
-  console.log(challenge)
   return {
     type: 'SHOW_CHALLENGE',
     challenge

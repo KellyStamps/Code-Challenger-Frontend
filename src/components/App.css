@@ -1,6 +1,6 @@
 body {
   background-color: #3399cc;
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
 h1 {
@@ -15,13 +15,6 @@ p {
   color: red;
 }
 
-.loggedout-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-}
-
 .navbar {
   color: white;
   text-align: center;
@@ -29,10 +22,13 @@ p {
   position: absolute;
   top: 0;
   background-color: #001489;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .navbar > ul {
   list-style-type: none;
+  margin: auto;
 }
 
 .navbar > ul > li {
@@ -51,30 +47,20 @@ p {
   background-color: white;
 }
 
-.challenge-list {
+.loggedout-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.small-challenge-list-div {
   grid-column-start: 1;
   grid-column-end: 4;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-}
-
-.challenge-card {
-  grid-column: 1fr;
-  border: 1px solid black;
-  padding: 40px;
-  background-color: #e6efe9;
-  text-align: center;
-}
-
-.challenge-card > a {
-  text-decoration: none;
-  color: black;
-}
-
-.challenge-card > a:visited {
-  text-decoration: none;
-  color: gray;
+  margin-left: 10px;
 }
 
 .loginform {
@@ -84,6 +70,7 @@ p {
   text-align: center;
   height: 200px;
   display: inline-block;
+  padding: 40px;
   margin-right: 10px;
   background-color: #e6efe9;
 }
@@ -98,15 +85,48 @@ p {
   margin: 5px;
 }
 
+.challenge-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 10px;
+}
+
+.challenge-card {
+  grid-column: 1fr;
+  border: 1px solid black;
+  padding: 40px;
+  background-color: #e6efe9;
+  text-align: center;
+  height: 200px;
+}
+
+.challenge-card > a {
+  text-decoration: none;
+  color: black;
+}
+
+.challenge-card > a:visited {
+  text-decoration: none;
+  color: gray;
+}
+
 .challenge-show {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   background-color: #e6efe9;
+  border: 1px solid black;
   height: 400px;
   width: 90%;
-  margin: auto;
+  margin: 10px auto auto auto;
   padding: 20px;
+}
+
+.challenge-show-error {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: center;
 }
 
 .links-div {

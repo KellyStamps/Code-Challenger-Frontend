@@ -1,6 +1,6 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
-import { Redirect } from "react-router";
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 
 class ChallengeList extends React.Component {
@@ -16,7 +16,9 @@ class ChallengeList extends React.Component {
           />
         ))}
       </div>
-    ) : (<Redirect to='/'/>)
+    ) : (
+      <div className="challenge-show-error"><h1>Please <Link to='/'>log in</Link>  to view challenges</h1></div>
+    )
   }
 }
 

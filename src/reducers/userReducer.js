@@ -1,12 +1,7 @@
-export default function userReducer(state = {
-  user: [],
-}, action) {
+export default function userReducer(state = {user: null}, action) {
   switch(action.type) {
-
-    // case 'ADD_USER':
-    //   return Object.assign({}, state, { users: state.users.concat(action.user) });
     case 'ADD_USER':
-      return state.user.concat(action.user);
+      return state.user = action.user;
     default: 
       return state;
   }

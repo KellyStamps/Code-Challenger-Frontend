@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import {connect} from 'react-redux';
 
 const NavBar = ({ user, visitProfile }) => {
-  console.log(this.props)
-  return user == undefined ? (
+  return user.username == null ? (
     <div className="navbar">
       <h1>CODE CHALLENGER</h1>
     </div>
@@ -20,7 +19,7 @@ const NavBar = ({ user, visitProfile }) => {
 };
 
 const mapStateToProps = (state) => {
-  return {user: state[0]}
+  return {user: state}
 }
 
 export default connect(mapStateToProps)(NavBar);

@@ -20,7 +20,6 @@ class App extends Component {
   //   this.props.fetchChallenges()
   // }
 
-
   handleClickedCard = arg => {
     this.setState({ challengeShow: arg });
   };
@@ -54,8 +53,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {challenges: state.challenges}
-}
-
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter((App));

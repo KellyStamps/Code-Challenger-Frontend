@@ -1,9 +1,11 @@
 import React from "react";
+import { connect } from 'react-redux';
+import {showChallenge} from '../actions/challenges'
 
-const ChallengeCard = ({ challenge, handleClick }) => {
+const ChallengeCard = ({ challenge, showChallenge }) => {
   return (
     <div className="challenge-card">
-      <p id={challenge.id} onClick={handleClick}>
+      <p id={challenge.id} onClick={() => showChallenge(challenge)}>
         {challenge.content}
       </p>
       <p>Rating: {challenge.rating}/10</p>
@@ -11,4 +13,6 @@ const ChallengeCard = ({ challenge, handleClick }) => {
   );
 };
 
-export default ChallengeCard;
+
+
+export default connect(null, {showChallenge})(ChallengeCard);

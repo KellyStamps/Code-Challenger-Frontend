@@ -11,3 +11,11 @@ export const showChallenge = (challenge) => {
     challenge
   }
 }
+
+// export const saveChallenge = (challenge, user) => {
+//   return {
+//     type: 'SAVE_CHALLENGE',
+//     challenge,
+//     user
+//   }
+// }

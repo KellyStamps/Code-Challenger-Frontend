@@ -12,8 +12,9 @@ export default function challengeReducer(state = {
       state = {...state, showChallenge: action.challenge}
       return state;
       
-    case 'ADD_CHALLENGE':
-      return state.challenges.concat(action.challenge);
+    // case 'ADD_CHALLENGE':
+    //   return state.challenges.concat(action.challenge);
+      
     default: 
       return state;
   }

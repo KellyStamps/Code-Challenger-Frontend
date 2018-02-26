@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 
 class SmallChallengeList extends React.Component {
   render(){
-
     return (
       <div className='small-challenge-list-div'>
       {this.props.challenges.slice(0,4).map(card => <ChallengeCard key={card.id} challenge={card}/>)}

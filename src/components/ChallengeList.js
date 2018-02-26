@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class ChallengeList extends React.Component {
 
   render() {
-      return (
+      return this.props.user ? (
       <div className="challenge-list">
         {this.props.challenges.map(chal => (
           <ChallengeCard
@@ -16,7 +16,7 @@ class ChallengeList extends React.Component {
           />
         ))}
       </div>
-    );
+    ) : (<Redirect to='/'/>)
   }
 }
 

@@ -6,7 +6,8 @@ class LoginForm extends React.Component {
   
   state = {
     username: '',
-    password: ''
+    password: '',
+    error: false
   }
   
   handleChange = (event) => {
@@ -25,18 +26,21 @@ class LoginForm extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username: event.target.username.value,
-        password: event.target.password.value,
+        username: this.state.username,
+        password: this.state.password,
       })
     })
       .then(res => res.json())
-      .then(json => this.props.addUser(json));
+      .then(json => {
+        json.status === 500 ? this.setState({error: true}) : this.props.addUser(json)
+      });
   };
   
   render() {
     return (
       <div className="loginform">
         <p>Login or Sign Up to Start!</p>
+        {this.state.error ? <h3 className='error'>Username or Password Incorrect</h3> : null}
         <form onSubmit={this.handleSubmit}>
           <input 
             type="text" 

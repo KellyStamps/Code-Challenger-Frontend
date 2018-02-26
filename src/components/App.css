@@ -11,14 +11,15 @@ p {
   font-family: "Mako";
 }
 
+.error {
+  color: red;
+}
+
 .loggedout-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-}
-
-.challenge-show {
 }
 
 .navbar {
@@ -95,6 +96,23 @@ p {
 
 #submit {
   margin: 5px;
+}
+
+.challenge-show {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  background-color: #e6efe9;
+  height: 400px;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.links-div {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: center;
 }
 
 .profile-container {

@@ -6,25 +6,19 @@ import {connect} from 'react-redux'
 class MyChallengesContainer extends React.Component {
   render() {
     
-    const inProgress = this.props.user.favorites.filter(fav => fav.completed == false)
-    const completed = this.props.user.favorites.filter(fav => fav.completed == true)
+    const inProgress = this.props.user.favorites.filter(fav => fav.completed === false)
+    const completed = this.props.user.favorites.filter(fav => fav.completed === true)
     
-    // debugger
     return this.props.user.favorites !== null ? (
     <div className='my-challenges-div'>
       <div className='my-challenges'>
         <h4>In Progress</h4>
-        <ul>    
-          {inProgress.map(chall => <li>{chall.challenge.content}</li>)}
-        </ul>
+          {inProgress.map(chall => <p><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>
         <h4>Completed</h4>
-        <ul>
-          {completed.map(chall => <li>{chall.challenge.content}</li>)}
-          // <Link to='/'><li>So cool too</li></Link>
-        </ul>
+          {completed.map(chall => <p><Link to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>

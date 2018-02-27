@@ -125,6 +125,10 @@ p {
   color: gray;
 }
 
+.challenge-card:hover {
+  background-color: #D6DEC9;
+}
+
 .challenge-show {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -195,4 +199,15 @@ p {
   border: black 1px solid;
   margin: 0px 20px 20px 20px;
   height: 400px;
+  overflow: auto;
+}
+
+.my-challenges > p {
+  height: 50px;
+  margin: auto;
+}
+
+.my-challenges > p:hover {
+  background-color: white;
+  color: white;
 }

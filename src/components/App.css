@@ -1,6 +1,6 @@
 body {
   background-color: #3399cc;
-  padding-top: 120px;
+  padding-top: 100px;
 }
 
 h1 {
@@ -90,6 +90,20 @@ p {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin: 10px;
+}
+
+.search {
+  grid-column: 1 /4;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.search > input {
+  height: 30px;
+  width: 40%;
+  font-family: "Mako";
+  font-size: 15px;
+  padding-left: 10px;
 }
 
 .challenge-card {

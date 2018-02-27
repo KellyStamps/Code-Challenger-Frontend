@@ -72,7 +72,7 @@ class ChallengeShow extends React.Component {
   }
   
   render() {
-    console.log(this.props)
+
     return this.props.showChallenge && this.props.user ? (
       <div className="challenge-show">
         <h1>{this.props.showChallenge.content}</h1>
@@ -84,7 +84,7 @@ class ChallengeShow extends React.Component {
           <p id='show-rating'>Rating: {this.props.showChallenge.rating}/10</p>
         </div>
         
-        <div className='links-div'>Links: {this.props.showChallenge.links !== null ? this.props.showChallenge.links.map(l => <a href={l}>{l.slice(0,4)}</a>) : <p>no links yet</p>}</div>
+        <div className='links-div'>Links: {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(l => <a href={l}>{l}</a>) : <p>no links yet</p>}</div>
       </div>
     ) : (
       <div className="log-in-reminder"><h1>Please <Link to='/'>log in</Link>  to view challenges</h1></div>

@@ -11,8 +11,9 @@ const NavBar = ({ user, visitProfile }) => {
     <div className="navbar">
       <h1>CODE CHALLENGER</h1>
       <ul>
+        <li><Link to={`/users/${user.id}/challenges`}>MY CHALLENGES</Link></li>
         <li><Link to={`/users/${user.id}`}>MY PROFILE</Link></li>
-        <li><Link to={`/challenges`}>CHALLENGES</Link></li>
+        <li><Link to={`/challenges`}>ALL CHALLENGES</Link></li>
       </ul>
     </div>
   );

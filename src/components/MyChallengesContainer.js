@@ -1,23 +1,29 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router'
 import {connect} from 'react-redux'
 
 class MyChallengesContainer extends React.Component {
   render() {
-
-    return (
+    
+    const inProgress = this.props.user.favorites.filter(fav => fav.completed == false)
+    const completed = this.props.user.favorites.filter(fav => fav.completed == true)
+    
+    // debugger
+    return this.props.user.favorites !== null ? (
     <div className='my-challenges-div'>
       <div className='my-challenges'>
         <h4>In Progress</h4>
-        <ul>
-          <Link to='/'><li>Cool Thing</li></Link>
+        <ul>    
+          {inProgress.map(chall => <li>{chall.challenge.content}</li>)}
         </ul>
       </div>
       
       <div className='my-challenges'>
         <h4>Completed</h4>
         <ul>
-          <Link to='/'><li>So cool too</li></Link>
+          {completed.map(chall => <li>{chall.challenge.content}</li>)}
+          // <Link to='/'><li>So cool too</li></Link>
         </ul>
       </div>
       
@@ -29,7 +35,8 @@ class MyChallengesContainer extends React.Component {
       </div>
     
     </div>
-  )}
+  ): (<Redirect to='/'/>)
+  }
 }
 
 const mapStateToProps = (state) => {

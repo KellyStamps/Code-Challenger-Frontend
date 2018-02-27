@@ -127,20 +127,12 @@ p {
 .challenge-show > h1 {
   margin: auto;
   grid-column: 1 / 3;
-  grid-row: 1/2;
+  grid-row: 1/3;
 }
 
-#show-rating {
-  grid-column: 3 / 4;
-  grid-row: 1/2;
-  text-align: center;
-  margin: auto;
-}
-
-.add-to-faves {
+.show-buttons {
   grid-column: 4 / 5;
   text-align: right;
-  margin: 0 0 0 0;
 }
 
 .links-div {
@@ -150,23 +142,43 @@ p {
   margin: auto;
 }
 
-.challenge-show-error {
+.log-in-reminder {
   grid-column-start: 2;
   grid-column-end: 4;
   text-align: center;
 }
 
 .profile-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.basic-info {
+  grid-column: 1fr;
   text-align: center;
-  margin: auto;
 }
 
 .edit-user-form {
+  grid-column: 1fr;
   border: 1px solid black;
   text-align: center;
   height: 200px;
-  display: inline-block;
-  margin-right: 10px;
   background-color: #e6efe9;
   padding: 10px;
+  margin-right: 20px;
+}
+
+.my-challenges-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.my-challenges {
+  grid-column: 1fr;
+  text-align: center;
+  background-color: #e6efe9;
+  border: black 1px solid;
+  margin: 0px 20px 20px 20px;
+  height: 400px;
 }

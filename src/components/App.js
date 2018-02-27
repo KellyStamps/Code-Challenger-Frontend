@@ -5,6 +5,8 @@ import {withRouter} from 'react-router-dom'
 import {fetchChallenges} from '../actions/challenges'
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
+import MyChallengeShow from "./MyChallengeShow";
+import MyChallengesContainer from "./MyChallengesContainer";
 import ProfileContainer from "./ProfileContainer";
 import ChallengeList from "./ChallengeList";
 import LoggedOutHome from "./LoggedOutHome";
@@ -25,8 +27,7 @@ class App extends Component {
         <NavBar />
           
         <Switch>
-          <Route exact path="/"
-            component={LoggedOutHome}/>
+          <Route exact path="/" component={LoggedOutHome}/>
           
           <Route
             path="/challenges/:id"
@@ -35,13 +36,13 @@ class App extends Component {
             return <ChallengeShow challenge={challenge}/>}}
             />
             
-          <Route exact path="/challenges"
-            render={props => {
-            return <ChallengeList />}}
-          />
+          <Route exact path="/challenges" component={ChallengeList} />
           
-          <Route path="/users/:id"
-            component={ProfileContainer}/>
+          <Route path='/users/:id/challenges/:id' component={MyChallengeShow}/>
+          
+          <Route path="/users/:id/challenges" component={MyChallengesContainer}/>
+          
+          <Route path="/users/:id" component={ProfileContainer}/>
             
         </Switch>
       </div>

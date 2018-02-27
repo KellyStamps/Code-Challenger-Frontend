@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 class LoggedOutHome extends React.Component {
 
   render() {
-    return this.props.user ? (<Redirect to={`/users/${this.props.user.id}`}/>)
+    return this.props.user ? (<Redirect to={`/users/${this.props.user.id}/challenges`}/>)
     :
     (<div className="loggedout-container">
         <SmallChallengeList/>

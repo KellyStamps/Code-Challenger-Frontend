@@ -211,3 +211,57 @@ p {
   background-color: white;
   color: white;
 }
+
+.my-challenge-show-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #B5D2DC;
+  margin: 0 20px 0 20px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.my-challenge-headline {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 10px;
+}
+
+.links-div {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  margin-top: 30px;
+}
+
+.helpful-resources-div {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  text-align: center;
+  height: 300px;
+}
+
+.my-challenge-show-div > div > p > a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.my-challenge-form-div {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.my-challenge-form {
+  padding: 10px;
+}
+
+.my-challenge-form > input {
+  display: block;
+  margin: auto;
+}
+
+.finished-links {
+  width: 300px;
+}

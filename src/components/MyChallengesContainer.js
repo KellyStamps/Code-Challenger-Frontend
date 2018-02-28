@@ -5,11 +5,17 @@ import {connect} from 'react-redux'
 
 class MyChallengesContainer extends React.Component {
   render() {
+    let inProgress;
+    let completed;
+    this.props.user && this.props.user.favorites ? (
+      inProgress = this.props.user.favorites.filter(fav => fav.completed === false),
+      completed = this.props.user.favorites.filter(fav => fav.completed === true)
+    ) : (
+      inProgress = [],
+      completed = []
+    )
     
-    const inProgress = this.props.user.favorites.filter(fav => fav.completed === false)
-    const completed = this.props.user.favorites.filter(fav => fav.completed === true)
-    
-    return this.props.user.favorites !== null ? (
+    return this.props.user ? (
     <div className='my-challenges-div'>
       <div className='my-challenges'>
         <h4>In Progress</h4>
@@ -29,7 +35,9 @@ class MyChallengesContainer extends React.Component {
       </div>
     
     </div>
-  ): (<Redirect to='/'/>)
+  ): (
+    <div className="log-in-reminder"><h1>Please <Link to='/'>log in</Link>  to view challenges</h1></div>
+  )
   }
 }
 

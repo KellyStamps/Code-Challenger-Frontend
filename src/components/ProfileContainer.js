@@ -2,13 +2,17 @@ import React from "react";
 import EditProfileForm from './EditProfileForm'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import {updateUser} from '../actions/users'
 
 class ProfileContainer extends React.Component {
+  
+  state = {
+    editFormShown: true
+  }
   
   handleUserEdit = (event) => {
     event.preventDefault()
     let body = {
-      username: event.target.username.value,
       bio: event.target.bio.value
     }
 
@@ -21,7 +25,11 @@ class ProfileContainer extends React.Component {
       body: JSON.stringify(body)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(json => {
+      this.setState({editFormShown: false}),
+      console.log(json)
+      this.props.updateUser(json)
+    })
   }
   
   render() {
@@ -33,7 +41,7 @@ class ProfileContainer extends React.Component {
           <h4>Joined on: {this.props.user.cake_day}</h4>
           <h4>Biography: "{this.props.user.bio}"</h4>
         </div>
-        <EditProfileForm user={this.props.user} handleSubmit={this.handleUserEdit}/>
+        <EditProfileForm user={this.props.user} handleSubmit={this.handleUserEdit} showingForm={this.state.editFormShown}/>
       </div>) : (
         <div className="log-in-reminder"><h1>Please <Link to='/'>log in</Link>  to view profile</h1></div>
       )
@@ -44,4 +52,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps) (ProfileContainer);
+export default connect(mapStateToProps, {updateUser}) (ProfileContainer);

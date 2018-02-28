@@ -4,3 +4,10 @@ export const addUser = user => {
     user: user 
   }
 }
+
+export const updateUser = (user) => {
+  return {
+    type: 'UPDATE_USER',  
+    user: user
+  }
+}

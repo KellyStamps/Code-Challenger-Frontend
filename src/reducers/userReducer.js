@@ -3,6 +3,11 @@ export default function userReducer(state = {user: null}, action) {
     case 'ADD_USER':
       state = {...state, user: action.user}
       return state;
+      
+    case 'UPDATE_USER': 
+      state = {...state, user: action.user}
+      return state;
+      
     default: 
       return state;
   }

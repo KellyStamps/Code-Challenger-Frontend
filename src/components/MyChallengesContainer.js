@@ -24,7 +24,7 @@ class MyChallengesContainer extends React.Component {
       
       <div className='my-challenges'>
         <h4>Completed</h4>
-          {completed.map(chall => <p key={chall.challenge.id}><Link to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
+          {completed.map(chall => <p key={chall.challenge.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>

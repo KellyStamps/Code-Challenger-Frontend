@@ -3,8 +3,14 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
 import CompletedChallengeForm from './CompletedChallengeForm'
+import {completeChallenge} from '../actions/challenges'
 
 class MyInProgressChallengeShow extends React.Component {
+  
+  handleCompletedForm = (json) => {
+    // this.props.completeChallenge(json.challenge)
+  }
+  
   render(){
     // console.log(this.props.user)
     let wholeChallenge;
@@ -26,7 +32,7 @@ class MyInProgressChallengeShow extends React.Component {
         
         <HelpfulResources/>
         
-        <CompletedChallengeForm id={parseInt(wholeChallenge.id)}/>
+        <CompletedChallengeForm id={parseInt(wholeChallenge.id)} parentSubmit={this.handleCompletedForm}/>
         
       </div>
     ) : (
@@ -39,4 +45,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps)(MyInProgressChallengeShow)
+export default connect(mapStateToProps, {completeChallenge})(MyInProgressChallengeShow)

@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import {fetchChallenges} from '../actions/challenges'
+import {fetchUsers} from '../actions/users'
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
 import MyInProgressChallengeShow from "./MyInProgressChallengeShow";
@@ -11,6 +12,7 @@ import MyChallengesContainer from "./MyChallengesContainer";
 import ProfileContainer from "./ProfileContainer";
 import ChallengeList from "./ChallengeList";
 import LoggedOutHome from "./LoggedOutHome";
+import UsersIndexContainer from "./UsersIndexContainer";
 import "./App.css";
 
 
@@ -19,7 +21,10 @@ class App extends Component {
   componentDidMount() {
     fetch(`http://localhost:3000/api/v1/challenges`)
       .then(res => res.json())
-      .then(data => this.props.fetchChallenges(data.challenges))
+      .then(data => {
+        this.props.fetchChallenges(data.challenges),
+        this.props.fetchUsers(data.allUsers)
+      })
   }
   
   render() {
@@ -45,8 +50,10 @@ class App extends Component {
           
           <Route path="/users/:id/challenges" component={MyChallengesContainer}/>
           
+          <Route exact path="/users/all" component={UsersIndexContainer}/>
+          
           <Route path="/users/:id" component={ProfileContainer}/>
-            
+
         </Switch>
       </div>
     );
@@ -54,7 +61,7 @@ class App extends Component {
 }
 
 const mapStateToProps =(state)=> {
-  return {...state.challenges}
+  return {...state.challenges, ...state.allUsers}
 }
 
-export default withRouter(connect(mapStateToProps, {fetchChallenges})(App));
+export default withRouter(connect(mapStateToProps, {fetchChallenges, fetchUsers})(App));

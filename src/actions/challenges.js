@@ -12,10 +12,9 @@ export const showChallenge = (challenge) => {
   }
 }
 
-// export const saveChallenge = (challenge, user) => {
-//   return {
-//     type: 'SAVE_CHALLENGE',
-//     challenge,
-//     user
-//   }
-// }
+export const completeChallenge = (challenge) => {
+  return {
+    type: 'COMPLETE_CHALLENGE',
+    challenge
+  }
+}

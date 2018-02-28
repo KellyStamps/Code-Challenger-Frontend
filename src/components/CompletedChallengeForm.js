@@ -30,17 +30,19 @@ class CompletedChallengeForm extends React.Component {
       body: JSON.stringify(body)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(json => this.props.parentSubmit(json))
   }
   
   render() {
-    console.log(this.props)
+
     return (
       <div className='my-challenge-form-div'>
         <label for='my-challenge-form'>Finished with this project? Submit your github and deployed links here!</label>
         <form id='my-challenge-form' className='my-challenge-form' onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} type='text' className='finished-links' id='github' placeholder='Git Hub Link'/>
-          <input onChange={this.handleChange} type='text' className='finished-links' id='deployed' placeholder='Deployed Link'/>
+          <p>GitHub.com/YourRepoName</p>
+          <input onChange={this.handleChange} type='text' className='finished-links' id='github' />
+          <p>Your-File-Name.HerokuApp.com</p>
+          <input onChange={this.handleChange} type='text' className='finished-links' id='deployed'/>
           <input id='submit-button' type='submit'/>
         </form>
       </div>

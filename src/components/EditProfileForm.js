@@ -5,7 +5,7 @@ const EditProfileForm = ({ user, handleSubmit, showingForm }) => {
     <div className="edit-user-form">
       <p>Edit Profile</p>
       <form onSubmit={handleSubmit}>
-        <input type="bio" id="bio" placeholder={user.bio} />
+        <input type="text-area" id="bio" placeholder={user.bio} />
         <input id="submit" type="submit"/>
       </form>
     </div>

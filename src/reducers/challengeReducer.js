@@ -12,8 +12,11 @@ export default function challengeReducer(state = {
       state = {...state, showChallenge: action.challenge}
       return state;
       
-    // case 'ADD_CHALLENGE':
-    //   return state.challenges.concat(action.challenge);
+    // case 'COMPLETE_CHALLENGE':
+    //   debugger
+    //   let found = state.challenges.find(chal => chal.id === action.challenge.challenge_id)
+    //   found = action.challenge
+    //   return state;
       
     default: 
       return state;

@@ -23,10 +23,15 @@ p {
   top: 0;
   background-color: #001489;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.navbar > h1 {
+  grid-column: 1/2;
 }
 
 .navbar > ul {
+  grid-column: 2/4;
   list-style-type: none;
   margin: auto;
 }
@@ -220,7 +225,7 @@ p {
 
 .my-challenge-show-div {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #B5D2DC;
   margin: 0 20px 0 20px;
   padding: 20px;
@@ -242,7 +247,7 @@ p {
 
 .helpful-resources-div {
   grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-end: 5;
   text-align: center;
   height: 300px;
 }
@@ -255,8 +260,11 @@ p {
 
 .my-challenge-form-div {
   text-align: center;
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-column-end: 4;
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 20px;
 }
 
 .my-challenge-form {
@@ -270,4 +278,25 @@ p {
 
 .finished-links {
   width: 300px;
+}
+
+.users-index {
+  text-align: center;
+}
+
+.users-index-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  text-align: center;
+  margin: 0 10px 0 10px;
+  height: 900px;
+}
+
+.user-index-card {
+  grid-column: 1fr;
+  grid-row: 1fr;
+  background-color: #B5D2DC;
+  border: 1px solid black;
+  margin: 10px;
 }

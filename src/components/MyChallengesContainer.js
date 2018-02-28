@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Redirect} from 'react-router'
 import {connect} from 'react-redux'
 
 class MyChallengesContainer extends React.Component {
   render() {
+    console.log(this.props)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (
@@ -19,12 +19,12 @@ class MyChallengesContainer extends React.Component {
     <div className='my-challenges-div'>
       <div className='my-challenges'>
         <h4>In Progress</h4>
-          {inProgress.map(chall => <p><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
+          {inProgress.map(chall => <p key={chall.challenge.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>
         <h4>Completed</h4>
-          {completed.map(chall => <p><Link to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
+          {completed.map(chall => <p key={chall.challenge.id}><Link to={`/users/${this.props.user.id}/challenges/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>

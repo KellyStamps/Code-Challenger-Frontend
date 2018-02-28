@@ -72,7 +72,7 @@ p {
   display: inline-block;
   padding: 40px;
   margin-right: 10px;
-  background-color: #e6efe9;
+  background-color: #B5D2DC;
 }
 
 #username,
@@ -110,23 +110,29 @@ p {
   grid-column: 1fr;
   border: 1px solid black;
   padding: 40px;
-  background-color: #e6efe9;
+  background-color: #B5D2DC;
+  color: white;
   text-align: center;
   height: 200px;
 }
 
 .challenge-card > a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .challenge-card > a:visited {
   text-decoration: none;
-  color: gray;
+  color: purple;
 }
 
 .challenge-card:hover {
-  background-color: #D6DEC9;
+  background-color: white;
+  color: purple;
+}
+
+.challenge-card:hover > a {
+  color: purple;
 }
 
 .challenge-show {
@@ -134,7 +140,7 @@ p {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
-  background-color: #e6efe9;
+  background-color: #B5D2DC;
   border: 1px solid black;
   height: 400px;
   width: 90%;
@@ -182,7 +188,7 @@ p {
   border: 1px solid black;
   text-align: center;
   height: 200px;
-  background-color: #e6efe9;
+  background-color: #B5D2DC;
   padding: 10px;
   margin-right: 20px;
 }
@@ -195,7 +201,7 @@ p {
 .my-challenges {
   grid-column: 1fr;
   text-align: center;
-  background-color: #e6efe9;
+  background-color: #B5D2DC;
   border: black 1px solid;
   margin: 0px 20px 20px 20px;
   height: 400px;

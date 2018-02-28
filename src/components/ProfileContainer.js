@@ -25,7 +25,7 @@ class ProfileContainer extends React.Component {
   }
   
   render() {
-    console.log(this.props)
+
     return this.props.user ? (
       <div className="profile-container">
         <div className='basic-info'>

@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
 import CompletedChallengeForm from './CompletedChallengeForm'
 
-class MyChallengeShow extends React.Component {
+class MyInProgressChallengeShow extends React.Component {
   render(){
-    console.log(this.props.user)
+    // console.log(this.props.user)
     let wholeChallenge;
     this.props.user ? (
       wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id))
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps)(MyChallengeShow)
+export default connect(mapStateToProps)(MyInProgressChallengeShow)

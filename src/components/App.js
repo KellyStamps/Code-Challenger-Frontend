@@ -5,7 +5,8 @@ import {withRouter} from 'react-router-dom'
 import {fetchChallenges} from '../actions/challenges'
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
-import MyChallengeShow from "./MyChallengeShow";
+import MyInProgressChallengeShow from "./MyInProgressChallengeShow";
+import MyCompletedChallengeShow from "./MyCompletedChallengeShow";
 import MyChallengesContainer from "./MyChallengesContainer";
 import ProfileContainer from "./ProfileContainer";
 import ChallengeList from "./ChallengeList";
@@ -38,7 +39,9 @@ class App extends Component {
             
           <Route exact path="/challenges" component={ChallengeList} />
           
-          <Route path='/users/:id/challenges/:id' component={MyChallengeShow}/>
+          <Route path='/users/:id/challenges/inprogress/:id' component={MyInProgressChallengeShow}/>
+          
+          <Route path='/users/:id/challenges/completed/:id' component={MyCompletedChallengeShow}/>
           
           <Route path="/users/:id/challenges" component={MyChallengesContainer}/>
           

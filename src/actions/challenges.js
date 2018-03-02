@@ -19,3 +19,10 @@ export const completeChallenge = (challenge) => {
   }
 }
 
+export const voteUpChallenge = (id) => {
+  return {
+    type: 'VOTE_UP_CHALLENGE',
+    id
+  }
+}
+

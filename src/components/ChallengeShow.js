@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {addFavorite} from '../actions/users'
+import {voteUpChallenge } from '../actions/challenges'
 
 class ChallengeShow extends React.Component {
 
@@ -34,9 +35,7 @@ class ChallengeShow extends React.Component {
       res.status === 200 ? this.props.addFavorite(this.props.showChallenge) : console.log(res)
     })
   }
-  
-  // {user_id: 3, challenge_id: 6, created_at: "Friday, March 02, 2018"}
-  
+    
   upvoteChallenge = () => {
     let rating = parseInt(this.props.showChallenge.rating)
     if (rating < 10 ) {
@@ -51,7 +50,9 @@ class ChallengeShow extends React.Component {
           rating: newRating
         })
       })
-      .then(console.log)
+      .then(res => {
+        res.status === 200 ? this.props.voteUpChallenge(this.props.showChallenge.id) : console.log(res)
+      })
     }
   }
   
@@ -75,7 +76,7 @@ class ChallengeShow extends React.Component {
   }
   
   render() {
-    debugger
+
     return this.props.showChallenge && this.props.user ? (
       <div className="challenge-show">
         <h1>{this.props.showChallenge.content}</h1>
@@ -100,4 +101,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges, ...state.showChallenge}
 }
 
-export default connect(mapStateToProps, {addFavorite})(ChallengeShow);
+export default connect(mapStateToProps, {addFavorite, voteUpChallenge})(ChallengeShow);

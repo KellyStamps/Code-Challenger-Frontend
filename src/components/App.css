@@ -211,11 +211,12 @@ p {
   margin: 0px 20px 20px 20px;
   height: 400px;
   overflow: auto;
+  padding: 0 5px 0 5px;
 }
 
 .my-challenges > p {
   height: 50px;
-  margin: auto;
+  margin: 0 15px 0 15px;
 }
 
 .my-challenges > p:hover {
@@ -299,4 +300,37 @@ p {
   background-color: #B5D2DC;
   border: 1px solid black;
   margin: 10px;
+}
+
+.friend-show-div {
+  background-color: #B5D2DC;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  margin: 0 10px 10px 10px;
+  padding: 10px;
+}
+
+.friend-headline {
+  grid-column: 1/3;
+}
+
+.friend-challenges-div {
+  grid-column: 3/7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.friend-challenges-div > h3{
+  grid-column: 1/4;
+}
+
+.friend-challenge-card {
+  grid-column: 1fr;
+  margin: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  height: 200px;
+  background-color: white;
 }

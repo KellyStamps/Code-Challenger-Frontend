@@ -13,6 +13,7 @@ import ProfileContainer from "./ProfileContainer";
 import ChallengeList from "./ChallengeList";
 import LoggedOutHome from "./LoggedOutHome";
 import UsersIndexContainer from "./UsersIndexContainer";
+import UsersIndexShow from "./UsersIndexShow";
 import "./App.css";
 
 
@@ -49,6 +50,8 @@ class App extends Component {
           <Route path='/users/:id/challenges/completed/:id' component={MyCompletedChallengeShow}/>
           
           <Route path="/users/:id/challenges" component={MyChallengesContainer}/>
+          
+          <Route exact path="/users/all/:id" component={UsersIndexShow}/>
           
           <Route exact path="/users/all" component={UsersIndexContainer}/>
           

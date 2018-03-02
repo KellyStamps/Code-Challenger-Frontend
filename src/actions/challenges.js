@@ -26,3 +26,10 @@ export const voteUpChallenge = (id) => {
   }
 }
 
+export const voteDownChallenge = (id) => {
+  return {
+    type: 'VOTE_DOWN_CHALLENGE',
+    id
+  }
+}
+

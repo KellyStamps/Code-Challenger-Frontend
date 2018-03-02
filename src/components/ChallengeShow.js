@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {addFavorite} from '../actions/users'
-import {voteUpChallenge } from '../actions/challenges'
+import {voteUpChallenge, voteDownChallenge } from '../actions/challenges'
 
 class ChallengeShow extends React.Component {
 
@@ -70,8 +70,9 @@ class ChallengeShow extends React.Component {
           rating: newRating
         })
       })
-      .then(res => res.json())
-      .then(console.log)
+      .then(res => {
+        res.status === 200 ? this.props.voteDownChallenge(this.props.showChallenge.id) : console.log(res)
+      })
     }
   }
   
@@ -101,4 +102,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges, ...state.showChallenge}
 }
 
-export default connect(mapStateToProps, {addFavorite, voteUpChallenge})(ChallengeShow);
+export default connect(mapStateToProps, {addFavorite, voteUpChallenge, voteDownChallenge})(ChallengeShow);

@@ -20,7 +20,16 @@ export default function challengeReducer(state = {
           ...state,
           challenges: [...state.challenges[0,action.id], state.challenges.concat(updating), state.challenges[action.id+1]]
       }
-      console.log(state)
+      return state;
+      
+    case 'VOTE_DOWN_CHALLENGE': 
+      let updated = state.challenges.find(chall => chall.id === action.id)
+      updated.rating = parseInt(updated.rating)
+      updated.rating = updated.rating -= 1
+      return { 
+          ...state,
+          challenges: [...state.challenges[0,action.id], state.challenges.concat(updated), state.challenges[action.id+1]]
+      }
       return state;
       
     // case 'COMPLETE_CHALLENGE':

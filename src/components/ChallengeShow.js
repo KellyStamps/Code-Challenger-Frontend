@@ -75,13 +75,14 @@ class ChallengeShow extends React.Component {
   }
   
   render() {
-
+    debugger
     return this.props.showChallenge && this.props.user ? (
       <div className="challenge-show">
         <h1>{this.props.showChallenge.content}</h1>
         
         <div className='show-buttons'>
-          <i onClick={this.handleClick} id='favorite' className="material-icons">favorite</i>
+          {!!this.props.user.favorites.find(fav => fav.challenge.id === this.props.showChallenge.id) ? <Link to={`/users/${this.props.showChallenge.id}/challenges`}>See Your Progress</Link> : <i onClick={this.handleClick} id='favorite' className="material-icons">favorite</i>}
+          
           <i onClick={this.handleClick} id='upvote' className="material-icons">arrow_upward</i>
           <i onClick={this.handleClick} id='downvote' className="material-icons">arrow_downward</i>
           <p id='show-rating'>Rating: {this.props.showChallenge.rating}/10</p>

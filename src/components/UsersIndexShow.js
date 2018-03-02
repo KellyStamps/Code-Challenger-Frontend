@@ -8,6 +8,7 @@ class UsersIndexShow extends React.Component {
     
     let friend;
     let projects;
+    
     this.props.user ? (
       friend = this.props.allUsers.find(friend => friend.user.id === parseInt(this.props.match.params.id)),
       

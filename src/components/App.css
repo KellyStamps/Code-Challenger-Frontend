@@ -97,10 +97,20 @@ p {
   margin: 10px;
 }
 
+.filter-cards {
+  grid-column: 1/2;
+  margin: auto;
+  color: white;
+}
+
+#filter-checkbox {
+  margin-left: 15px;
+}
+
 .search {
-  grid-column: 1 /4;
+  grid-column: 2 /4;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 .search > input {
@@ -162,6 +172,10 @@ p {
 .show-buttons {
   grid-column: 4 / 5;
   text-align: right;
+}
+
+.show-buttons > i {
+  margin: 10px;
 }
 
 .links-div {

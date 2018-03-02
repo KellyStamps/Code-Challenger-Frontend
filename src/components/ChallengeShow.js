@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import {addFavorite} from '../actions/users'
 
 class ChallengeShow extends React.Component {
 
@@ -29,9 +30,12 @@ class ChallengeShow extends React.Component {
         challenge_id: this.props.showChallenge.id
       })
     })
-    .then(res => res.json())
-    .then(console.log)
+    .then(res => {
+      res.status === 200 ? this.props.addFavorite(this.props.showChallenge) : console.log(res)
+    })
   }
+  
+  // {user_id: 3, challenge_id: 6, created_at: "Friday, March 02, 2018"}
   
   upvoteChallenge = () => {
     let rating = parseInt(this.props.showChallenge.rating)
@@ -52,7 +56,6 @@ class ChallengeShow extends React.Component {
   }
   
   downvoteChallenge = () => {
-
     let rating = parseInt(this.props.showChallenge.rating)
     if (rating > 0 ) {
       let newRating = rating-=1
@@ -96,4 +99,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges, ...state.showChallenge}
 }
 
-export default connect(mapStateToProps)(ChallengeShow);
+export default connect(mapStateToProps, {addFavorite})(ChallengeShow);

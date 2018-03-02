@@ -18,3 +18,10 @@ export const updateUser = (user) => {
     user: user
   }
 }
+
+export const addFavorite = (challenge) => {
+  return {
+    type: 'ADD_FAVORITE',
+    challenge: {challenge: {...challenge}, completed: false}
+  }
+}

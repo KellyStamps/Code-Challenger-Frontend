@@ -3,8 +3,10 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 class MyChallengesContainer extends React.Component {
+  
+  
   render() {
-
+    // console.log(this.props.user.favorites)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (

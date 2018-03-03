@@ -6,7 +6,7 @@ class MyChallengesContainer extends React.Component {
   
   
   render() {
-    // console.log(this.props.user.favorites)
+    console.log(this.props.user)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (
@@ -26,14 +26,18 @@ class MyChallengesContainer extends React.Component {
       
       <div className='my-challenges'>
         <h4>Completed</h4>
-          {completed.map(chall => <p key={chall.challenge.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
+          {completed.map(chall => {
+            <p key={chall.challenge.id}>
+              <Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>
+                {chall.challenge.content}
+              </Link>
+            </p>}
+          )}
       </div>
       
       <div className='my-challenges'>
         <h4>Friends</h4>
-        <ul>
-          <Link to='/'><li>Yamuna Of Course</li></Link>
-        </ul>
+          {this.props.user.friends.map(friend => <p key={friend.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/all/${friend.id}`}>{friend.username}</Link></p>)}
       </div>
     
     </div>

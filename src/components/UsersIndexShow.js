@@ -3,9 +3,23 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 class UsersIndexShow extends React.Component {
+  
+  handleAddFriend = (event) => {
+    fetch(`http://localhost:3000/api/v1/friendships`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: this.props.user.id,
+        friend_id: this.props.match.params.id
+      })
+    })
+    .then(console.log)
+  }
 
   render(){
-    
     let friend;
     let projects;
     
@@ -14,14 +28,13 @@ class UsersIndexShow extends React.Component {
       
       projects = friend.projects.filter(proj => proj.project.completed === true)
       ) : (<div className="log-in-reminder"><h1>Please <Link to='/'>log in</Link>  to view challenges</h1></div>)
-      debugger
 
     return this.props.user ? (
       <div className='friend-show-div'>
       
         <div className='friend-headline'>
           <h1>{friend.user.username}</h1>
-          <button>Add Friend</button>
+          <button onClick={this.handleAddFriend}>Add Friend</button>
           <h3>A little about {friend.user.username}:</h3>
           <p>{friend.user.bio}</p>
         </div>

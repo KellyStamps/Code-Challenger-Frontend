@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {addFriend} from '../actions/users'
 
 class UsersIndexShow extends React.Component {
   
@@ -16,7 +17,8 @@ class UsersIndexShow extends React.Component {
         friend_id: this.props.match.params.id
       })
     })
-    .then(console.log)
+    .then(res => res.json())
+    .then(json => this.props.addFriend(json.friendship))
   }
 
   render(){
@@ -60,18 +62,8 @@ class UsersIndexShow extends React.Component {
 }
 
 
-// {wholeChallenge.git_link && wholeChallenge.live_link  !== null ? (
-//   <div>
-//     <p>
-//       <a href={`http://${wholeChallenge.git_link}`} target='_blank'>{wholeChallenge.git_link }</a>
-//     </p>
-//     <p>
-//       <a href={wholeChallenge.live_link} target='_blank'>{wholeChallenge.live_link }</a>
-//     </p>
-//     </div>) : <p>no links yet</p>}
-
 const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps)(UsersIndexShow)
+export default connect(mapStateToProps, {addFriend})(UsersIndexShow)

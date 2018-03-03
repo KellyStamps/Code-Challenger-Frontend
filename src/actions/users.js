@@ -25,3 +25,11 @@ export const addFavorite = (challenge) => {
     challenge: {challenge: {...challenge}, completed: false}
   }
 }
+
+export const addFriend = (friendship) => {
+  debugger
+  return {
+    type: 'ADD_FRIEND',
+    id: friendship.user_id
+  }
+}

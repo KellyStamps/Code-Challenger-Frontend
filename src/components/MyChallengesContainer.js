@@ -6,7 +6,7 @@ class MyChallengesContainer extends React.Component {
   
   
   render() {
-    console.log(this.props.user)
+    console.log(this.props.user.friends)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (

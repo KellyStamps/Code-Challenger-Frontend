@@ -1,15 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import HelpfulResources from './HelpfulResources'
-import CompletedChallengeForm from './CompletedChallengeForm'
+
 
 class MyInProgressChallengeShow extends React.Component {
   render(){
     
     let wholeChallenge;
     this.props.user ? (
-      wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id))
+      wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id,10))
     ) : null
 
 

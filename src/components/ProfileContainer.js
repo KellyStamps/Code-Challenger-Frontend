@@ -26,8 +26,7 @@ class ProfileContainer extends React.Component {
     })
     .then(res => res.json())
     .then(json => {
-      this.setState({editFormShown: false}),
-      console.log(json)
+      this.setState({editFormShown: false})
       this.props.updateUser(json)
     })
   }

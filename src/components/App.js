@@ -24,7 +24,7 @@ class App extends Component {
     fetch(`http://localhost:3000/api/v1/challenges`)
       .then(res => res.json())
       .then(data => {
-        this.props.fetchChallenges(data.challenges),
+        this.props.fetchChallenges(data.challenges)
         this.props.fetchUsers(data.allUsers)
       })
   }

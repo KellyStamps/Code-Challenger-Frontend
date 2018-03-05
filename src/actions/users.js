@@ -36,6 +36,6 @@ export const addFriend = (friendship) => {
 export const deleteFriend = (id) => {
   return {
     type: 'DELETE_FRIEND',
-    id: parseInt(id)
+    id: parseInt(id, 10)
   }
 }

@@ -37,7 +37,7 @@ class ChallengeShow extends React.Component {
   }
     
   upvoteChallenge = () => {
-    let rating = parseInt(this.props.showChallenge.rating)
+    let rating = parseInt(this.props.showChallenge.rating, 10)
     if (rating < 10 ) {
       let newRating = rating+=1
       fetch(`http://localhost:3000/api/v1/challenges/${this.props.showChallenge.id}`, {
@@ -57,7 +57,7 @@ class ChallengeShow extends React.Component {
   }
   
   downvoteChallenge = () => {
-    let rating = parseInt(this.props.showChallenge.rating)
+    let rating = parseInt(this.props.showChallenge.rating, 10)
     if (rating > 0 ) {
       let newRating = rating-=1
       fetch(`http://localhost:3000/api/v1/challenges/${this.props.showChallenge.id}`, {

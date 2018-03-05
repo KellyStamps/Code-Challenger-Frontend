@@ -48,7 +48,6 @@ class ChallengeList extends React.Component {
   }
 
   render() {
-    console.log(this.props)
       return this.props.user ? (
       <div className="challenge-list">
       <div className='filter-cards'>

@@ -33,3 +33,10 @@ export const voteDownChallenge = (id) => {
   }
 }
 
+export const addChallenge = (challenge) => {
+  return{
+    type: 'ADD_CHALLENGE',
+    challenge
+  }
+}
+

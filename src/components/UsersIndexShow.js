@@ -22,7 +22,7 @@ class UsersIndexShow extends React.Component {
   }
   
   handleDeleteFriend = (event) => {
-    let id = this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id))
+    let id = this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id, 10))
 
     fetch(`http://localhost:3000/api/v1/friendships/${id}`, {
       method: 'DELETE',
@@ -45,7 +45,7 @@ class UsersIndexShow extends React.Component {
     let projects;
 
     this.props.user ? (
-      friend = this.props.allUsers.find(friend => friend.user.id === parseInt(this.props.match.params.id)),
+      friend = this.props.allUsers.find(friend => friend.user.id === parseInt(this.props.match.params.id, 10)),
       
       projects = friend.projects.filter(proj => proj.project.completed === true)
       ) : (<div className="log-in-reminder"><h1>Please <Link to='/'>log in</Link>  to view challenges</h1></div>)
@@ -56,7 +56,7 @@ class UsersIndexShow extends React.Component {
         <div className='friend-headline'>
           <h1>{friend.user.username}</h1>
           
-          {!!this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id)) ? <button onClick={this.handleDeleteFriend}>Delete Friend</button> : <button onClick={this.handleAddFriend}>Add Friend</button>}
+          {!!this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id, 10)) ? <button onClick={this.handleDeleteFriend}>Delete Friend</button> : <button onClick={this.handleAddFriend}>Add Friend</button>}
           
           <h3>A little about {friend.user.username}:</h3>
           <p>{friend.user.bio}</p>

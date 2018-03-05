@@ -15,7 +15,7 @@ class MyInProgressChallengeShow extends React.Component {
     // console.log(this.props.user)
     let wholeChallenge;
     this.props.user ? (
-      wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id))
+      wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id, 10))
     ) : null
     
     return this.props.user ? (
@@ -32,7 +32,7 @@ class MyInProgressChallengeShow extends React.Component {
         
         <HelpfulResources/>
         
-        <CompletedChallengeForm id={parseInt(wholeChallenge.id)} parentSubmit={this.handleCompletedForm}/>
+        <CompletedChallengeForm id={parseInt(wholeChallenge.id, 10)} parentSubmit={this.handleCompletedForm}/>
         
       </div>
     ) : (

@@ -34,6 +34,12 @@ export default function userReducer(state = {user: null, allUsers: null}, action
           friends: state.user.friends.filter(fr => fr.id !== oldFriend.id)})})
       return state;
       
+    case 'DELETE_IN_PROGRESS_CHALLENGE':
+      state = Object.assign({}, state, {
+        user: Object.assign({}, state.user, {
+          favorites: state.user.favorites.filter(fav => fav.id !== action.favorite_id)})})
+      return state;
+      
     default: 
       return state;
   }

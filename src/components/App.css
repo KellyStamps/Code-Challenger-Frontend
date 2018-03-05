@@ -294,6 +294,23 @@ p {
   margin: 10px;
 }
 
+.my-challenge-headline > button {
+  text-align: center;
+  padding: 5px 7px 8px 7px;
+  width: auto;
+  height: auto;
+  background-color: #001489;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "Mako";
+  margin: 10px auto auto auto;
+}
+
+.my-challenge-headline > button:hover {
+  background-color: red;
+}
+
 .links-div {
   grid-column-start: 2;
   grid-column-end: 3;

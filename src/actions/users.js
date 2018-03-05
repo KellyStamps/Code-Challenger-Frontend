@@ -39,3 +39,11 @@ export const deleteFriend = (id) => {
     id: parseInt(id, 10)
   }
 }
+
+export const deleteInProgressChallenge = (id) => {
+  // debugger
+  return{
+    type: 'DELETE_IN_PROGRESS_CHALLENGE',
+    favorite_id: parseInt(id, 10) 
+  }
+}

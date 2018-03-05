@@ -1,18 +1,37 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
 import CompletedChallengeForm from './CompletedChallengeForm'
 import {completeChallenge} from '../actions/challenges'
+import {deleteInProgressChallenge} from '../actions/users'
 
 class MyInProgressChallengeShow extends React.Component {
+  
+  state = {
+    redirect: false
+  }
   
   handleCompletedForm = (json) => {
     // this.props.completeChallenge(json.challenge)
   }
   
+  handleClick = (wholeChallenge) => {
+    fetch(`http://localhost:3000/api/v1/user_challenges/${wholeChallenge.id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(json =>{
+      this.setState({redirect: true}), this.props.deleteInProgressChallenge(json.id)
+    })
+  }
+  
   render(){
-    // console.log(this.props.user)
+    
+    if (this.state.redirect) {
+      return <Redirect to={`/users/${this.props.user.id}/challenges`}/>
+    }
+    
     let wholeChallenge;
     this.props.user ? (
       wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id, 10))
@@ -23,6 +42,7 @@ class MyInProgressChallengeShow extends React.Component {
         <div className='my-challenge-headline'>
           <h1>{wholeChallenge.challenge.content}</h1>
           <p id='show-rating'>Rating: {wholeChallenge.challenge.rating}/10</p>
+          <button onClick={() => this.handleClick(wholeChallenge)}>Remove from My Challenges</button>
         </div>
         
         <div className='links-div'>
@@ -45,4 +65,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps, {completeChallenge})(MyInProgressChallengeShow)
+export default connect(mapStateToProps, {completeChallenge, deleteInProgressChallenge})(MyInProgressChallengeShow)

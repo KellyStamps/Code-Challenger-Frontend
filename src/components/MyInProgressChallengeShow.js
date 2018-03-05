@@ -4,17 +4,16 @@ import {Link, Redirect} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
 import {ROOT, HEADERS} from '../constants/index'
 import CompletedChallengeForm from './CompletedChallengeForm'
-import {completeChallenge} from '../actions/challenges'
 import {deleteInProgressChallenge} from '../actions/users'
 
 class MyInProgressChallengeShow extends React.Component {
   
   state = {
-    redirect: false
+    redirect: ''
   }
   
   handleCompletedForm = (json) => {
-    // this.props.completeChallenge(json.challenge)
+    this.setState({redirect: "forComplete"})
   }
   
   handleClick = (wholeChallenge) => {
@@ -23,14 +22,17 @@ class MyInProgressChallengeShow extends React.Component {
     })
     .then(res => res.json())
     .then(json =>{
-      this.setState({redirect: true}), this.props.deleteInProgressChallenge(json.id)
+      this.setState({redirect: "forDelete"}), this.props.deleteInProgressChallenge(json.id)
     })
   }
   
   render(){
     
-    if (this.state.redirect) {
+    if (this.state.redirect === "forDelete") {
       return <Redirect to={`/users/${this.props.user.id}/challenges`}/>
+    } else if (this.state.redirect === "forComplete") {
+      console.log('yes  ')
+      // return <Redirect to={`/users/${this.props.user.id}/challenges/completed/${this.props.match.params.id}`}/>
     }
     
     let wholeChallenge;
@@ -53,7 +55,7 @@ class MyInProgressChallengeShow extends React.Component {
         
         <HelpfulResources/>
         
-        <CompletedChallengeForm id={parseInt(wholeChallenge.id, 10)} parentSubmit={this.handleCompletedForm}/>
+        <CompletedChallengeForm id={wholeChallenge.id} parentSubmit={this.handleCompletedForm}/>
         
       </div>
     ) : (
@@ -66,4 +68,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps, {completeChallenge, deleteInProgressChallenge})(MyInProgressChallengeShow)
+export default connect(mapStateToProps, { deleteInProgressChallenge})(MyInProgressChallengeShow)

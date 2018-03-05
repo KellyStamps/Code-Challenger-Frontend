@@ -1,5 +1,7 @@
 import React from 'react'
 import {ROOT, HEADERS} from '../constants/index'
+import {completeChallenge} from '../actions/users'
+import {connect} from 'react-redux'
 
 class CompletedChallengeForm extends React.Component {
   
@@ -21,13 +23,16 @@ class CompletedChallengeForm extends React.Component {
       git_link: this.state.github,
       live_link: this.state.deployed
     } 
+    console.log(this.props.id)
     fetch(`${ROOT}user_challenges/${this.props.id}`, {
       method: 'PATCH',
       headers: HEADERS,
       body: JSON.stringify(body)
     })
     .then(res => res.json())
-    .then(json => this.props.parentSubmit(json))
+    .then(json => {
+      this.props.parentSubmit(event),
+      this.props.completeChallenge(json.challenge)})
   }
   
   render() {
@@ -47,4 +52,4 @@ class CompletedChallengeForm extends React.Component {
   }
 }
 
-export default CompletedChallengeForm
+export default connect(null,{completeChallenge}) (CompletedChallengeForm)

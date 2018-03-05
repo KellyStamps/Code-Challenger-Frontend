@@ -289,7 +289,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #B5D2DC;
-  margin: 0 20px 0 20px;
+  margin: 0 20px 10px 20px;
   padding: 20px;
   border: 1px solid black;
   border-radius: 10px;

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {addFriend} from '../actions/users'
+import {addFriend, deleteFriend} from '../actions/users'
 
 class UsersIndexShow extends React.Component {
   
@@ -20,11 +20,30 @@ class UsersIndexShow extends React.Component {
     .then(res => res.json())
     .then(json => this.props.addFriend(json.friendship))
   }
+  
+  handleDeleteFriend = (event) => {
+    let id = this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id))
+
+    fetch(`http://localhost:3000/api/v1/friendships/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: this.props.user.id,
+        friend_id: this.props.match.params.id,
+        id: id
+      })
+    })
+    .then(res => res.json())
+    .then(json => this.props.deleteFriend(json.id))
+  }
 
   render(){
     let friend;
     let projects;
-    
+
     this.props.user ? (
       friend = this.props.allUsers.find(friend => friend.user.id === parseInt(this.props.match.params.id)),
       
@@ -36,7 +55,9 @@ class UsersIndexShow extends React.Component {
       
         <div className='friend-headline'>
           <h1>{friend.user.username}</h1>
-          <button onClick={this.handleAddFriend}>Add Friend</button>
+          
+          {!!this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id)) ? <button onClick={this.handleDeleteFriend}>Delete Friend</button> : <button onClick={this.handleAddFriend}>Add Friend</button>}
+          
           <h3>A little about {friend.user.username}:</h3>
           <p>{friend.user.bio}</p>
         </div>
@@ -66,4 +87,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps, {addFriend})(UsersIndexShow)
+export default connect(mapStateToProps, {addFriend, deleteFriend})(UsersIndexShow)

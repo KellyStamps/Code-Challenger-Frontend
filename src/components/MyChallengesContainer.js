@@ -6,7 +6,7 @@ class MyChallengesContainer extends React.Component {
   
   
   render() {
-    console.log(this.props.user.friends)
+    console.log(this.props.user.friends.length)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (
@@ -26,18 +26,13 @@ class MyChallengesContainer extends React.Component {
       
       <div className='my-challenges'>
         <h4>Completed</h4>
-          {completed.map(chall => {
-            <p key={chall.challenge.id}>
-              <Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>
-                {chall.challenge.content}
-              </Link>
-            </p>}
-          )}
+          {completed.map(chall => <p key={chall.challenge.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/${this.props.user.id}/challenges/completed/${chall.challenge.id}`}>{chall.challenge.content}</Link></p>)}
       </div>
       
       <div className='my-challenges'>
         <h4>Friends</h4>
-          {this.props.user.friends.map(friend => <p key={friend.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/all/${friend.id}`}>{friend.username}</Link></p>)}
+          {this.props.user.friends ? 
+          this.props.user.friends.map(friend => <p key={friend.friend.id}><Link style={{ textDecoration: 'none', color: 'black'}} to={`/users/all/${friend.friend.id}`}>{friend.friend.username}</Link></p>) : null}
       </div>
     
     </div>

@@ -5,7 +5,6 @@ import UserIndexCard from './UserIndexCard'
 class UsersIndexContainer extends React.Component {
   render(){
     const otherUsers = this.props.allUsers.filter(user => user.user.id !== this.props.user.id)
-    console.log(otherUsers)
     
     return(
       <div className='users-index'>

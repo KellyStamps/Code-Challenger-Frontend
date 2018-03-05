@@ -27,9 +27,15 @@ export const addFavorite = (challenge) => {
 }
 
 export const addFriend = (friendship) => {
-  debugger
   return {
     type: 'ADD_FRIEND',
-    id: friendship.user_id
+    friendship
+  }
+}
+
+export const deleteFriend = (id) => {
+  return {
+    type: 'DELETE_FRIEND',
+    id: parseInt(id)
   }
 }

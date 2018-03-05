@@ -20,10 +20,18 @@ export default function userReducer(state = {user: null, allUsers: null}, action
       return state;
       
     case 'ADD_FRIEND':
-      let friend = state.allUsers.find(user => user.user.id === action.id) 
+      let newFriend = state.allUsers.find(user => user.user.id === action.friendship.user_id) 
       state = Object.assign({}, state, {
         user: Object.assign({}, state.user, {
-          friends: state.user.friends.concat(friend.user) })})
+          friends: state.user.friends.concat({id: action.friendship.id, friend: newFriend.user}) })})
+      return state;
+      
+    case 'DELETE_FRIEND':
+      let oldFriend = state.user.friends.find(fr => fr.id === action.id)
+      
+      state = Object.assign({}, state, {
+        user: Object.assign({}, state.user, {
+          friends: state.user.friends.filter(fr => fr.id !== oldFriend.id)})})
       return state;
       
     default: 

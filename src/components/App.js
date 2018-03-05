@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
 import {fetchChallenges} from '../actions/challenges'
 import {fetchUsers} from '../actions/users'
+import {ROOT} from '../constants/index'
 import NavBar from "./Navbar";
 import ChallengeShow from "./ChallengeShow";
 import MyInProgressChallengeShow from "./MyInProgressChallengeShow";
@@ -21,7 +22,7 @@ import "./App.css";
 class App extends Component {
   
   componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/challenges`)
+    fetch(`${ROOT}challenges`)
       .then(res => res.json())
       .then(data => {
         this.props.fetchChallenges(data.challenges)

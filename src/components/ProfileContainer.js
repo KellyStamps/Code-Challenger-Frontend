@@ -2,6 +2,7 @@ import React from "react";
 import EditProfileForm from './EditProfileForm'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import {ROOT, HEADERS} from '../constants/index'
 import {updateUser} from '../actions/users'
 
 class ProfileContainer extends React.Component {
@@ -16,12 +17,9 @@ class ProfileContainer extends React.Component {
       bio: event.target.bio.value
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${this.props.match.params.id}`, {
+    fetch(`${ROOT}users/${this.props.match.params.id}`, {
       method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify(body)
     })
     .then(res => res.json())

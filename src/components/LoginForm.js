@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {addUser} from '../actions/users'
+import {addUser} from '../actions/users';
+import {ROOT, HEADERS} from '../constants/index'
 
 class LoginForm extends React.Component {
   
@@ -19,12 +20,9 @@ class LoginForm extends React.Component {
   
   handleSubmit = event => {
     event.preventDefault();
-    fetch(`http://localhost:3000/api/v1/users`, {
+    fetch(`${ROOT}users`, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         username: this.state.username,
         password: this.state.password,

@@ -1,4 +1,5 @@
 import React from 'react'
+import {ROOT, HEADERS} from '../constants/index'
 
 class CompletedChallengeForm extends React.Component {
   
@@ -20,12 +21,9 @@ class CompletedChallengeForm extends React.Component {
       git_link: this.state.github,
       live_link: this.state.deployed
     } 
-    fetch(`http://localhost:3000/api/v1/user_challenges/${this.props.id}`, {
+    fetch(`${ROOT}user_challenges/${this.props.id}`, {
       method: 'PATCH',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify(body)
     })
     .then(res => res.json())

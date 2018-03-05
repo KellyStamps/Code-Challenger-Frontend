@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import {addFavorite} from '../actions/users'
+import {ROOT, HEADERS} from '../constants/index'
 import {voteUpChallenge, voteDownChallenge } from '../actions/challenges'
 
 class ChallengeShow extends React.Component {
@@ -20,12 +21,9 @@ class ChallengeShow extends React.Component {
   }
   
   saveChallenge = () => {
-    fetch(`http://localhost:3000/api/v1/user_challenges`, {
+    fetch(`${ROOT}user_challenges`, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         user_id: this.props.user.id,
         challenge_id: this.props.showChallenge.id
@@ -40,12 +38,9 @@ class ChallengeShow extends React.Component {
     let rating = parseInt(this.props.showChallenge.rating, 10)
     if (rating < 10 ) {
       let newRating = rating+=1
-      fetch(`http://localhost:3000/api/v1/challenges/${this.props.showChallenge.id}`, {
+      fetch(`${ROOT}challenges/${this.props.showChallenge.id}`, {
         method: 'PATCH',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
+        headers: HEADERS,
         body: JSON.stringify({
           rating: newRating
         })
@@ -60,12 +55,9 @@ class ChallengeShow extends React.Component {
     let rating = parseInt(this.props.showChallenge.rating, 10)
     if (rating > 0 ) {
       let newRating = rating-=1
-      fetch(`http://localhost:3000/api/v1/challenges/${this.props.showChallenge.id}`, {
+      fetch(`${ROOT}challenges/${this.props.showChallenge.id}`, {
         method: 'PATCH',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
+        headers: HEADERS,
         body: JSON.stringify({
           rating: newRating
         })

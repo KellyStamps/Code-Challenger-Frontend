@@ -101,7 +101,15 @@ p {
   font-family: "Mako";
 }
 
-.challenge-list {
+.challenge-list  {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 10px;
+}
+
+.sorters {
+  grid-column: 1/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;

@@ -1,6 +1,7 @@
 import React from 'react'
 import NewChallengeForm from './NewChallengeForm'
 import {connect} from 'react-redux'
+import {ROOT, HEADERS} from '../constants/index'
 import {addChallenge} from '../actions/challenges'
 
 class NewChallengeContainer extends React.Component {
@@ -12,12 +13,9 @@ class NewChallengeContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.setState({showingForm: false})
-    fetch(`http://localhost:3000/api/v1/challenges`, {
+    fetch(`${ROOT}challenges`, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         content: event.target.content.value,
         links: event.target.links.value,

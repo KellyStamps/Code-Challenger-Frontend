@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link, Redirect} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
+import {ROOT, HEADERS} from '../constants/index'
 import CompletedChallengeForm from './CompletedChallengeForm'
 import {completeChallenge} from '../actions/challenges'
 import {deleteInProgressChallenge} from '../actions/users'
@@ -17,7 +18,7 @@ class MyInProgressChallengeShow extends React.Component {
   }
   
   handleClick = (wholeChallenge) => {
-    fetch(`http://localhost:3000/api/v1/user_challenges/${wholeChallenge.id}`, {
+    fetch(`${ROOT}user_challenges/${wholeChallenge.id}`, {
       method: 'DELETE'
     })
     .then(res => res.json())

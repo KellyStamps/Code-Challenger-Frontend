@@ -1,17 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {ROOT, HEADERS} from '../constants/index'
 import {addFriend, deleteFriend} from '../actions/users'
 
 class UsersIndexShow extends React.Component {
   
   handleAddFriend = (event) => {
-    fetch(`http://localhost:3000/api/v1/friendships`, {
+    fetch(`${ROOT}friendships`, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         user_id: this.props.user.id,
         friend_id: this.props.match.params.id
@@ -24,12 +22,9 @@ class UsersIndexShow extends React.Component {
   handleDeleteFriend = (event) => {
     let id = this.props.user.friends.find(fr => fr.friend.id === parseInt(this.props.match.params.id, 10))
 
-    fetch(`http://localhost:3000/api/v1/friendships/${id}`, {
+    fetch(`${ROOT}friendships/${id}`, {
       method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         user_id: this.props.user.id,
         friend_id: this.props.match.params.id,

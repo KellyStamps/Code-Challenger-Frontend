@@ -4,9 +4,7 @@ import {connect} from 'react-redux'
 
 class MyChallengesContainer extends React.Component {
   
-  
   render() {
-    console.log(this.props.user.friends.length)
     let inProgress;
     let completed;
     this.props.user && this.props.user.favorites ? (

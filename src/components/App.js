@@ -14,6 +14,7 @@ import ChallengeList from "./ChallengeList";
 import LoggedOutHome from "./LoggedOutHome";
 import UsersIndexContainer from "./UsersIndexContainer";
 import UsersIndexShow from "./UsersIndexShow";
+import NewChallengeContainer from "./NewChallengeContainer";
 import "./App.css";
 
 
@@ -35,6 +36,8 @@ class App extends Component {
           
         <Switch>
           <Route exact path="/" component={LoggedOutHome}/>
+          
+          <Route exact path="/challenges/new" component={NewChallengeContainer} />
           
           <Route
             path="/challenges/:id"

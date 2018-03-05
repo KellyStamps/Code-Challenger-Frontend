@@ -16,7 +16,6 @@ class ChallengeList extends React.Component {
     } else {
         this.setState({checked: event.target.checked})
     }
-    
   }
   
   renderHelper = () => {
@@ -59,6 +58,10 @@ class ChallengeList extends React.Component {
       
         <div className='search'>
           <input onChange={this.handleChange} value={this.state.searchTerm} id='search' type='text' placeholder='Search Challenges...' />
+        </div>
+        
+        <div className='new-challenge-link-div'>
+          <Link to='/challenges/new'>New Challenge</Link>
         </div>
         
         {this.renderHelper().map(chal => (<ChallengeCard challenge={chal} key={chal.id}/>))}

@@ -15,8 +15,7 @@ export default function userReducer(state = {user: null, allUsers: null}, action
       
     case 'ADD_FAVORITE':
       state = Object.assign({}, state, {
-        user: Object.assign({}, state.user, {
-          favorites: state.user.favorites.concat(action.challenge) })})
+        user: Object.assign({}, state.user, {favorites: state.user.favorites.concat({id: action.challenge.challenge.id, challenge: action.challenge.challenge.challenge, completed: false })})})
       return state;
       
     case 'ADD_FRIEND':

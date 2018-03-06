@@ -29,9 +29,8 @@ class ChallengeShow extends React.Component {
         challenge_id: this.props.showChallenge.id
       })
     })
-    .then(res => {
-      res.status === 200 ? this.props.addFavorite(this.props.showChallenge) : console.log(res)
-    })
+    .then(res => res.json())
+    .then(json => this.props.addFavorite(json))
   }
     
   upvoteChallenge = () => {

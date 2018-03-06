@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import UserIndexCard from './UserIndexCard'
 
 class UsersIndexContainer extends React.Component {
@@ -21,19 +22,27 @@ class UsersIndexContainer extends React.Component {
   }
   
   render(){
-    
-    return(
-      <div className='users-index'>
-        <h1>Add Friends!</h1>    
-        <div className='user-search'>
-          <input onChange={this.handleChange} value={this.state.searchTerm} id='search' type='text' placeholder='Search Friends...' />
-        </div>
-        
+    if (this.state.user) {
+      return(
+        <div className='users-index'>
+          <h1>Add Friends!</h1>    
+          <div className='user-search'>
+            <input onChange={this.handleChange} value={this.state.searchTerm} id='search' type='text' placeholder='Search Friends...' />
+          </div>
+          
         <div className='users-index-container'>
           {this.renderHelper().map(user=> <UserIndexCard key={user.user.id} user={user}/>)}
+          </div>
         </div>
+      )
+    } else {
+      return (
+       <div className="log-in-reminder">
+        <h1>Please <Link to='/'>log in</Link>  to view users</h1>
       </div>
-    )
+     )
+    }
+    
   }
 }
 

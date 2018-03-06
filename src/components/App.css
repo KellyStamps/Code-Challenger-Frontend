@@ -233,6 +233,10 @@ p {
   text-align: center;
 }
 
+.log-in-reminder > h1 > a {
+  color: white;
+}
+
 .profile-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -524,7 +528,7 @@ p {
 .new-challenge-form-div {
   text-align: center;
   background-color: lightgray;
-  border: 1px solid black;
+  box-shadow: 3px 3px 10px;
   padding: 20px;
   width: 50%;
   margin: auto;
@@ -550,4 +554,6 @@ p {
   font-size: 13px;
   padding: 8px 20px 8px 20px;
   font-family: "Mako";
+  box-shadow: 3px 3px 5px black;
+  border: none;
 }

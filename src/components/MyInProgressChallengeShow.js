@@ -48,7 +48,7 @@ class MyInProgressChallengeShow extends React.Component {
           <button onClick={() => this.handleClick(wholeChallenge)}>Remove from My Challenges</button>
         </div>
         
-        <div className='links-div'>
+        <div className='in-progress-links-div'>
           <p>Links:</p> 
           {wholeChallenge.challenge.links !== null ? wholeChallenge.challenge.links.split(',').map(link => <p><a href={link} target='_blank'>{link}</a></p>) : <p>no links yet</p>}
         </div>

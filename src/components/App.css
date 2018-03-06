@@ -213,6 +213,7 @@ p {
 
 .challenge-show > h1 {
   margin: auto;
+  padding-left: 40px;
   grid-column: 1 / 3;
   grid-row: 1/3;
 }
@@ -227,8 +228,7 @@ p {
 }
 
 .links-div {
-  grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column: 2/4;
   text-align: center;
   margin: auto;
 }
@@ -331,6 +331,7 @@ p {
   grid-column-start: 2;
   grid-column-end: 3;
   margin-top: 30px;
+  text-align: center;
 }
 
 .helpful-resources-div {

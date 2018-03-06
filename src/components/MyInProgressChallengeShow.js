@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link, Redirect} from 'react-router-dom'
 import HelpfulResources from './HelpfulResources'
-import {ROOT, HEADERS} from '../constants/index'
+import {ROOT} from '../constants/index'
 import CompletedChallengeForm from './CompletedChallengeForm'
 import {deleteInProgressChallenge} from '../actions/users'
 
@@ -22,7 +22,8 @@ class MyInProgressChallengeShow extends React.Component {
     })
     .then(res => res.json())
     .then(json =>{
-      this.setState({redirect: "forDelete"}), this.props.deleteInProgressChallenge(json.id)
+      this.setState({redirect: "forDelete"})
+      this.props.deleteInProgressChallenge(json.id)
     })
   }
   

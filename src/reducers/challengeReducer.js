@@ -1,11 +1,13 @@
 export default function challengeReducer(state = {
   challenges: [],
+  lazy_links: [],
   showChallenge: null
 }, action) {
 
   switch(action.type) {
+    
     case 'FETCH_CHALLENGES':
-      state = {...state, challenges: action.challenges}
+      state = {...state, challenges: action.challenges, lazy_links: action.lazy_links}
       return state;
     
     case 'SHOW_CHALLENGE':
@@ -30,7 +32,6 @@ export default function challengeReducer(state = {
         };
         
     case 'ADD_CHALLENGE':
-      let updatedChallenges = state.challenges.concat(action.challenge)
       state = Object.assign({}, state, {
         challenges: [...state.challenges.concat(action.challenge)]
         })

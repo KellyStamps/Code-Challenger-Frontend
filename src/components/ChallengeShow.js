@@ -67,6 +67,19 @@ class ChallengeShow extends React.Component {
     }
   }
   
+  getFinishedLinks = () => {
+    if (this.props.user) {
+
+      let relevantLinks = this.props.lazy_links.filter(link => link.id === this.props.showChallenge.id)
+      
+      if (relevantLinks.length > 0) {
+        return relevantLinks.map(link => <Link key={link.id} to={`/users/all/${link.user.id}`}>{link.user.username}<br/></Link>)
+      } else {
+        return <p>Be the first to complete this!</p>
+      }
+    } 
+  }
+  
   render() {
     if (this.props.showChallenge && this.props.user) {
       return (
@@ -81,7 +94,12 @@ class ChallengeShow extends React.Component {
             <p id='show-rating'>Rating: {this.props.showChallenge.rating}/10</p>
           </div>
           
-          <div className='links-div'>Links: {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(l => <a href={l}>{l}</a>) : <p>no links yet</p>}</div>
+          <div className="finished-examples">
+            <h4>See how other users have done this:</h4>
+            {this.getFinishedLinks()}
+          </div>
+          
+          <div className='links-div'>Links: {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <a key={link} href={link}>{link}</a>) : <p>no links yet</p>}</div>
         </div>
       )
     } else {

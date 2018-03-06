@@ -35,7 +35,7 @@ class CompletedChallengeForm extends React.Component {
       })
       .then(res => res.json())
       .then(json => {
-        this.props.completeChallenge(json.challenge),
+        this.props.completeChallenge(json.challenge)
         this.props.parentSubmit(event)
       })
     } else {

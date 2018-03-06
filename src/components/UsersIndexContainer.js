@@ -22,7 +22,7 @@ class UsersIndexContainer extends React.Component {
   }
   
   render(){
-    if (this.state.user) {
+    if (this.props.user) {
       return(
         <div className='users-index'>
           <h1>Add Friends!</h1>    

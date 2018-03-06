@@ -25,7 +25,7 @@ class App extends Component {
     fetch(`${ROOT}challenges`)
       .then(res => res.json())
       .then(data => {
-        this.props.fetchChallenges(data.challenges)
+        this.props.fetchChallenges(data.challenges, data.lazy_links)
         this.props.fetchUsers(data.allUsers)
       })
   }

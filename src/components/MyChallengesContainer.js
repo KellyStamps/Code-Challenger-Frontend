@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 class MyChallengesContainer extends React.Component {
   
   render() {
-    console.log(this.props)
     
     if (this.props.user && this.props.user.favorites) {
       let inProgress = this.props.user.favorites.filter(fav => fav.completed === false)

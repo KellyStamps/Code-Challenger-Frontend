@@ -47,11 +47,12 @@ class ChallengeList extends React.Component {
   }
 
   render() {
-      return this.props.user ? (
+    if (this.props.user) {
+      return (
       <div className="challenge-list">
       
       <div className='filter-cards'>
-        <label for='filter-checkbox'>Only projects I have not done</label>
+        <label htmlFor='filter-checkbox'>Only projects I have not done</label>
         <input onChange={this.handleChange} id='filter-checkbox' type='checkbox'/>
       </div>
     
@@ -63,13 +64,16 @@ class ChallengeList extends React.Component {
         <Link to='/challenges/new'>New Challenge</Link>
       </div>
         
+      {this.renderHelper().map(chal => (<ChallengeCard challenge={chal} key={chal.id}/>))}
         
-        {this.renderHelper().map(chal => (<ChallengeCard challenge={chal} key={chal.id}/>))}
-        
-      </div> ) : (
-      <div className="log-in-reminder">
-        <h1>Please <Link to='/'>log in</Link>  to view challenges</h1>
-      </div>)
+      </div> )
+    } else {
+      return (
+        <div className="log-in-reminder">
+          <h1>Please <Link to='/'>log in</Link>  to view challenges</h1>
+        </div>
+      )
+    }  
   }
 }
 

@@ -1,7 +1,8 @@
-export const fetchChallenges = (challenges) => {
+export const fetchChallenges = (challenges, lazy_links) => {
   return {
     type: 'FETCH_CHALLENGES',
-    challenges
+    challenges: challenges,
+    lazy_links: lazy_links
   }
 }
 

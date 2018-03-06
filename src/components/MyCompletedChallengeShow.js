@@ -20,7 +20,7 @@ class MyInProgressChallengeShow extends React.Component {
           <p id='show-rating'>Rating: {wholeChallenge.challenge.rating}/10</p>
         </div>
         
-        <div className='links-div'>
+        <div className='in-progress-links-div'>
           <p>Links:</p> 
           {wholeChallenge.git_link && wholeChallenge.live_link  !== null ? (
             <div>

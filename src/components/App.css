@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  font-family: "Allerta Stencil";
+  font-family: "Nobile";
 }
 
 p {
@@ -24,6 +24,7 @@ p {
   background-color: #001489;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  font-family: "Nobile";
 }
 
 .navbar > h1 {
@@ -81,6 +82,7 @@ p {
   margin-right: 10px;
   background-color: #B5D2DC;
   border-radius: 10px;
+  font-family: "Nobile";
 }
 
 #username,
@@ -120,6 +122,7 @@ p {
   grid-column: 1/2;
   margin: auto;
   color: white;
+  font-family: "Nobile";
 }
 
 #filter-checkbox {
@@ -130,12 +133,13 @@ p {
   grid-column: 2 /3;
   margin-bottom: 10px;
   text-align: center;
+
 }
 
 .search > input {
   height: 30px;
   width: 90%;
-  font-family: "Mako";
+  font-family: "Nobile";
   font-size: 15px;
   padding-left: 10px;
   border-radius: 5px;
@@ -257,6 +261,10 @@ p {
   border-radius: 10px;
 }
 
+.edit-user-form > p {
+  font-family: "Nobile";
+}
+
 .my-challenges-div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -319,7 +327,7 @@ p {
   background-color: red;
 }
 
-.links-div {
+.in-progress-links-div {
   grid-column-start: 2;
   grid-column-end: 3;
   margin-top: 30px;
@@ -397,6 +405,7 @@ p {
   margin: 10px;
   border-radius: 10px;
   padding: 10px;
+  font-family: "Nobile";
 }
 
 .friend-show-div {
@@ -412,6 +421,7 @@ p {
 
 .friend-headline {
   grid-column: 1/3;
+  font-family: "Nobile";
 }
 
 .friend-headline > button {
@@ -435,6 +445,7 @@ p {
 
 .friend-challenges-div > h3{
   grid-column: 1/4;
+  font-family: "Nobile";
 }
 
 .friend-challenge-card {

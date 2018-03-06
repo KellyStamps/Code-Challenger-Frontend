@@ -20,25 +20,27 @@ class LoginForm extends React.Component {
   
   handleSubmit = event => {
     event.preventDefault();
-    fetch(`${ROOT}users`, {
-      method: "POST",
-      headers: HEADERS,
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password,
+    if (this.state.username.length > 0 && this.state.password.length > 0) {
+      fetch(`${ROOT}users`, {
+        method: "POST",
+        headers: HEADERS,
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+        })
       })
-    })
-      .then(res => res.json())
-      .then(json => {
-        json.status === 500 ? this.setState({error: true}) : this.props.addUser(json)
-      });
+        .then(res => res.json())
+        .then(json => this.props.addUser(json));
+    } else {
+      this.setState({error: true})
+    }
   };
   
   render() {
     return (
       <div className="loginform">
+      {this.state.error ? <p className='error-headline'>Please provide a username and password to login</p> : null}
         <h3>Login or Sign Up to Start!</h3>
-        {this.state.error ? <h3 className='error'>Username or Password Incorrect</h3> : null}
         <form onSubmit={this.handleSubmit}>
           <input 
             type="text" 

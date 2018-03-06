@@ -282,6 +282,10 @@ p {
   border-radius: 10px;
 }
 
+.my-challenges > h4 {
+  font-family: "Nobile";
+}
+
 .my-challenges > p {
   height: 50px;
   margin: 15px;
@@ -366,6 +370,10 @@ p {
   margin: auto;
   height: 20px;
   border-radius: 5px;
+}
+
+.error-headline {
+  color: red;
 }
 
 #submit-button {

@@ -27,8 +27,8 @@ export default function userReducer(state = {user: null, allUsers: null}, action
       return state;
       
     case 'COMPLETE_CHALLENGE':
+
       let found = state.user.favorites.find(fav => fav.challenge.id === action.challenge.challenge_id)
-      debugger
       found.completed = true
       found.git_link = action.challenge.git_link
       found.live_link = action.challenge.live_link 

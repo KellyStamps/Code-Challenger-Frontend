@@ -15,8 +15,7 @@ export default function userReducer(state = {user: null, allUsers: null}, action
       
     case 'ADD_FAVORITE':
       state = Object.assign({}, state, {
-        user: Object.assign({}, state.user, {
-          favorites: state.user.favorites.concat(action.challenge) })})
+        user: Object.assign({}, state.user, {favorites: state.user.favorites.concat({id: action.challenge.challenge.id, challenge: action.challenge.challenge.challenge, completed: false })})})
       return state;
       
     case 'ADD_FRIEND':
@@ -24,6 +23,19 @@ export default function userReducer(state = {user: null, allUsers: null}, action
       state = Object.assign({}, state, {
         user: Object.assign({}, state.user, {
           friends: state.user.friends.concat({id: action.friendship.id, friend: newFriend.user}) })})
+      return state;
+      
+    case 'COMPLETE_CHALLENGE':
+
+      let found = state.user.favorites.find(fav => fav.challenge.id === action.challenge.challenge_id)
+      found.completed = true
+      found.git_link = action.challenge.git_link
+      found.live_link = action.challenge.live_link 
+      
+      state = Object.assign({}, state, {
+        user: Object.assign({}, state.user, {
+          favorites: state.user.favorites.filter(fav => fav.id !== found.id).concat(found)})
+      })
       return state;
       
     case 'DELETE_FRIEND':

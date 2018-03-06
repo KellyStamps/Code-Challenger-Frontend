@@ -33,6 +33,13 @@ export const addFriend = (friendship) => {
   }
 }
 
+export const completeChallenge = (challenge) => {
+  return {
+    type: 'COMPLETE_CHALLENGE',
+    challenge
+  }
+}
+
 export const deleteFriend = (id) => {
   return {
     type: 'DELETE_FRIEND',

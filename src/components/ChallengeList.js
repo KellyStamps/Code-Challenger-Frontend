@@ -1,6 +1,5 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
-import ChallengeSorters from "./ChallengeSorters";
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -50,8 +49,20 @@ class ChallengeList extends React.Component {
   render() {
       return this.props.user ? (
       <div className="challenge-list">
+      
+      <div className='filter-cards'>
+        <label for='filter-checkbox'>Only projects I have not done</label>
+        <input onChange={this.handleChange} id='filter-checkbox' type='checkbox'/>
+      </div>
+    
+      <div className='search'>
+        <input onChange={this.handleChange} value={this.state.searchTerm} id='search' type='text' placeholder='Search Challenges...' />
+      </div>
+      
+      <div className='new-challenge-link-div'>
+        <Link to='/challenges/new'>New Challenge</Link>
+      </div>
         
-        <ChallengeSorters searchTerm={this.state.searchTerm} handleChange={this.handleChange}/>
         
         {this.renderHelper().map(chal => (<ChallengeCard challenge={chal} key={chal.id}/>))}
         

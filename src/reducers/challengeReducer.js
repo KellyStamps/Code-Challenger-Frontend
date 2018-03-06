@@ -20,28 +20,22 @@ export default function challengeReducer(state = {
           challenges: [...state.challenges.slice(0,action.id).concat(updating), ...state.challenges.slice(action.id+1)]
       };
       
-      case 'VOTE_DOWN_CHALLENGE': 
-        let updated = state.challenges.find(chall => chall.id === action.id)
-        updated.rating = parseInt(updated.rating, 10)
-        updated.rating = updated.rating -= 1
+    case 'VOTE_DOWN_CHALLENGE': 
+      let updated = state.challenges.find(chall => chall.id === action.id)
+      updated.rating = parseInt(updated.rating, 10)
+      updated.rating = updated.rating -= 1
      
-        return {...state,
-            challenges: [...state.challenges.slice(0,action.id).concat(updated), ...state.challenges.slice(action.id+1)]
+      return {...state,
+        challenges: [...state.challenges.slice(0,action.id).concat(updated), ...state.challenges.slice(action.id+1)]
         };
         
-      case 'ADD_CHALLENGE':
-        let updatedChallenges = state.challenges.concat(action.challenge)
-        state = Object.assign({}, state, {
-          challenges: [...state.challenges.concat(action.challenge)]
+    case 'ADD_CHALLENGE':
+      let updatedChallenges = state.challenges.concat(action.challenge)
+      state = Object.assign({}, state, {
+        challenges: [...state.challenges.concat(action.challenge)]
         })
-        return state;
+      return state;
       
-      
-    // case 'COMPLETE_CHALLENGE':
-    //   debugger
-    //   let found = state.challenges.find(chal => chal.id === action.challenge.challenge_id)
-    //   found = action.challenge
-    //   return state;
       
     default: 
       return state;

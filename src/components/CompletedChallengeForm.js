@@ -49,7 +49,7 @@ class CompletedChallengeForm extends React.Component {
     return (
       <div className='my-challenge-form-div'>
         {this.state.error ? <h3 className='error-headline'>Please submit both links to complete challenge</h3> : null}
-        <label for='my-challenge-form'>Finished with this project? Submit your github and deployed links here!</label>
+        <label htmlFor='my-challenge-form'>Finished with this project? Submit your github and deployed links here!</label>
         <form id='my-challenge-form' className='my-challenge-form' onSubmit={this.handleSubmit}>
           <p>GitHub.com/YourRepoName</p>
           <input onChange={this.handleChange} type='text' className='finished-links' id='github' />

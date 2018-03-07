@@ -74,9 +74,9 @@ class ChallengeShow extends React.Component {
       
       if (relevantLinks.length > 0) {
         return relevantLinks.map(link => (
-          <div>
-            <Link key={link.id} id="username-link" to={`/users/all/${link.user.id}`}>{link.user.username}<br/></Link>
-            <a href={`http://${link.git_link}`}>GitHub</a> | <a href={`http://${link.live_link}`}>Deployed</a>
+          <div key={link.id}>
+            <Link id="username-link" to={`/users/all/${link.user.id}`}>{link.user.username}<br/></Link>
+            <a href={`http://${link.git_link}`} target='_blank'>GitHub</a> | <a href={`http://${link.live_link}`} target='_blank'>Deployed</a>
           </div>
           )
         )
@@ -92,7 +92,7 @@ class ChallengeShow extends React.Component {
         <div className="challenge-show">
           <h1>{this.props.showChallenge.content}</h1>
           
-          <div className='links-div'><h4>Helpful Documentation Links:</h4> {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <p><a key={link} href={link} target="_blank">{link}</a></p>) : <p>no links yet</p>}</div>
+          <div className='links-div'><h4>Helpful Documentation Links:</h4> {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <p key={link}><a href={link} target="_blank">{link}</a></p>) : <p>no links yet</p>}</div>
           
           <div className='show-buttons'>
             {!!this.props.user.favorites.find(fav => fav.challenge.id === this.props.showChallenge.id) ? <Link to={`/users/${this.props.showChallenge.id}/challenges`}>See Your Progress</Link> : <i onClick={this.handleClick} id='favorite' className="material-icons">favorite</i>}

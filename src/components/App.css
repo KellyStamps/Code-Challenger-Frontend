@@ -488,11 +488,11 @@ p {
   padding-left: 50px;
 }
 
-.comp-links-div > div > p {
+.comp-links-div > div > div {
   font-family: "Nobile";
 }
 
-.comp-links-div > div > p > a {
+.comp-links-div > div > div > a {
   color: white;
   padding: 10px;
   text-decoration: none;

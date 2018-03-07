@@ -58,11 +58,11 @@ class UsersIndexShow extends React.Component {
             <h3>Completed Projects:</h3> 
               {projects.map(proj => {
                 return (
-                <div className='friend-challenge-card'>
+                <div key={proj.title} className='friend-challenge-card'>
                   <h4>{proj.title}</h4>
-                  <a href={`http://${proj.project.git_link}`}>GitHub</a>
+                  <a href={`http://${proj.project.git_link}`} target='_blank'>GitHub</a>
                     <br/>
-                  <a href={`http://${proj.project.live_link}`}>Deployed Site</a>
+                  <a href={`http://${proj.project.live_link}`} target='_blank'>Deployed Site</a>
                 </div>
               )})}
           </div>

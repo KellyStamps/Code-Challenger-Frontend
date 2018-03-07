@@ -18,8 +18,8 @@ class MyInProgressChallengeShow extends React.Component {
             
           <div className='comp-links-div'>
             <div>
-              <p>See it on Github: <a href={`http://${wholeChallenge.git_link}`} target='_blank'>{wholeChallenge.git_link }</a></p>
-              <p>See it in Action: <a href={wholeChallenge.live_link} target='_blank'>{wholeChallenge.live_link }</a></p>
+              <div>See it on Github: <a href={`http://${wholeChallenge.git_link}`} target='_blank'>{wholeChallenge.git_link }</a></div>
+              <div>See it in Action: <a href={`http://${wholeChallenge.live_link}`} target='_blank'>{wholeChallenge.live_link }</a></div>
             </div> 
           </div>  
         </div>

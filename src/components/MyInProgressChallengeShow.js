@@ -46,7 +46,7 @@ class MyInProgressChallengeShow extends React.Component {
            
            <div className='in-progress-links-div'>
              <h4>Links:</h4> 
-             {wholeChallenge.challenge.links !== null ? wholeChallenge.challenge.links.split(',').map(link => <p><a href={link} target='_blank'>{link}</a></p>) : <p>no links yet</p>}
+             {wholeChallenge.challenge.links !== null ? wholeChallenge.challenge.links.split(',').map(link => <p key={link}><a href={link} target='_blank'>{link}</a></p>) : <p>no links yet</p>}
            </div>
            
            <HelpfulResources/>

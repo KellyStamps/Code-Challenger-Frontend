@@ -48,6 +48,7 @@ class ChallengeList extends React.Component {
 
   render() {
     if (this.props.user) {
+  
       return (
       <div className="challenge-list">
       

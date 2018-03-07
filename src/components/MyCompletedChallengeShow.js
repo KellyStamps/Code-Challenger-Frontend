@@ -11,7 +11,7 @@ class MyInProgressChallengeShow extends React.Component {
       
       return (
         <div className='my-comp-challenge-show-div'>
-          <div className='my-challenge-headline'>
+          <div className='comp-headline'>
             <h1>{wholeChallenge.challenge.content}</h1>
             <p id='show-rating'>Rating: {wholeChallenge.challenge.rating}/10</p>
           </div>

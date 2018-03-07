@@ -38,7 +38,7 @@ class MyInProgressChallengeShow extends React.Component {
        let wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id, 10))
        return (
          <div className='my-challenge-show-div'>
-           <div className='my-challenge-headline'>
+           <div className='my-challenge-in-progress-headline'>
              <h1>{wholeChallenge.challenge.content}</h1>
              <p id='show-rating'>Rating: {wholeChallenge.challenge.rating}/10</p>
              <button onClick={() => this.handleClick(wholeChallenge)}>Remove from My Challenges</button>

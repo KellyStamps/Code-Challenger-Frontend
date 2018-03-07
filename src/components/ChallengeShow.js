@@ -92,7 +92,7 @@ class ChallengeShow extends React.Component {
         <div className="challenge-show">
           <h1>{this.props.showChallenge.content}</h1>
           
-          <div className='links-div'><h4>Helpful Documentation Links:</h4> {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <a key={link} href={link}>{link}</a>) : <p>no links yet</p>}</div>
+          <div className='links-div'><h4>Helpful Documentation Links:</h4> {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <p><a key={link} href={link} target="_blank">{link}</a></p>) : <p>no links yet</p>}</div>
           
           <div className='show-buttons'>
             {!!this.props.user.favorites.find(fav => fav.challenge.id === this.props.showChallenge.id) ? <Link to={`/users/${this.props.showChallenge.id}/challenges`}>See Your Progress</Link> : <i onClick={this.handleClick} id='favorite' className="material-icons">favorite</i>}

@@ -109,13 +109,12 @@ p {
 
 .challenge-list  {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 10px;
 }
 
 .filter-cards {
-  grid-column: 1/2;
   margin: auto;
   color: white;
   font-family: "Nobile";
@@ -142,6 +141,7 @@ p {
 
 .new-challenge-link-div {
   grid-column: 3/4;
+  /* display: inline-block; width: 33%; */
   text-align: center;
   margin-top: 10px;
 }
@@ -173,6 +173,16 @@ p {
   margin: 0 10px 10px 10px;
   box-shadow: 3px 3px 10px black;
 }
+
+/* .index-cards {
+  grid-column: 1/5;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    .challenge-card{ width: 100%; }
+} */
 
 .challenge-card > a {
   text-decoration: none;
@@ -579,6 +589,7 @@ p {
 .friend-headline {
   grid-column: 1/3;
   font-family: "Nobile";
+  padding: 20px;
 }
 
 .friend-headline > button {

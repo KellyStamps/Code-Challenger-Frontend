@@ -21,10 +21,11 @@ p {
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: #001489;
+  background: linear-gradient(to right, #001489, #636EA0);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   font-family: "Nobile";
+  box-shadow: 2px 2px 15px black;
 }
 
 .navbar > h1 {
@@ -58,7 +59,7 @@ p {
 .loggedout-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-auto-rows: minmax(100px, auto);
 }
 
@@ -78,7 +79,7 @@ p {
   height: 200px;
   display: inline-block;
   padding: 40px;
-  margin-right: 10px;
+  margin-right: 20px;
   background-color: #B5D2DC;
   border-radius: 10px;
   font-family: "Nobile";
@@ -169,7 +170,7 @@ p {
   text-align: center;
   height: 200px;
   border-radius: 10px;
-  margin: 0 0 10px 0;
+  margin: 0 10px 10px 10px;
   box-shadow: 3px 3px 10px black;
 }
 

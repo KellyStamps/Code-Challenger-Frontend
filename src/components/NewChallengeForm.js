@@ -3,8 +3,13 @@ import React from "react";
 const NewChallengeForm = ({ handleSubmit, showingForm, error }) => {
   return showingForm ? (
     <div className="new-challenge-form">
+    
       {error && error === 'content' ? <h3 className='error-headline'>Project description cannot be blank</h3> : null}
+      
       {error && error === 'links' ? <h3 className='error-headline'>Separate links with a comma and a space</h3> : null}
+      
+      {error && error === 'http' ? <h3 className='error-headline'>Please begin your links with "http://"</h3> : null}
+      
       <h2>Create a New Challenge</h2>
       <form id='new-form' onSubmit={handleSubmit}>
         <p>Describe the project in one sentence...</p>

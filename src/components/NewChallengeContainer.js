@@ -15,7 +15,7 @@ class NewChallengeContainer extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     
-    if (event.target.content.value.length > 0 && event.target.links.value.includes(",")) {
+    if (event.target.content.value.length > 0 && event.target.links.value.includes(",") && event.target.links.value.includes("http://")) {
       this.setState({showingForm: false})
       fetch(`${ROOT}challenges`, {
         method: 'POST',
@@ -29,8 +29,10 @@ class NewChallengeContainer extends React.Component {
       .then(json => this.props.addChallenge(json.challenge))
     } else if (event.target.content.value.length <= 0) {
       this.setState({error: 'content'})
-    } else {
+    } else if (!event.target.links.value.includes(",")){
       this.setState({error: 'links'})
+    } else {
+      this.setState({error: 'http'})
     }
     
   }

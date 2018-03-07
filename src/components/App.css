@@ -1,6 +1,6 @@
 body {
   background-color: #3399cc;
-  padding-top: 100px;
+  padding-top: 110px;
 }
 
 h1 {
@@ -198,7 +198,7 @@ p {
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
   background-color: #B5D2DC;
-  height: 400px;
+  height: 600px;
   width: 90%;
   margin: 10px auto auto auto;
   padding: 10px 20px 20px 20px;
@@ -209,8 +209,14 @@ p {
 .challenge-show > h1 {
   margin: auto;
   padding: 40px;
-  grid-column: 1 / 5;
+  grid-column: 1 / 2;
   text-align: center;
+}
+
+.links-div {
+  grid-column: 2/5;
+  text-align: center;
+  margin: auto;
 }
 
 .show-buttons {
@@ -222,15 +228,55 @@ p {
   margin: 10px;
 }
 
-.finished-examples {
-  grid-column: 1/3;
-  text-align: center;
+.show-buttons > i:hover {
+  background-color: white;
 }
 
-.links-div {
-  grid-column: 3/6;
+.show-buttons > a {
+  text-decoration: none;
+  color: white;
+}
+
+.show-buttons > a:hover {
+  text-decoration: underline;
+}
+
+.finished-examples {
+  grid-column: 2/5;
   text-align: center;
-  margin: auto;
+  background-color: lightgrey;
+  padding: 10px 10px 30px 10px;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+}
+
+.finished-examples > h4 {
+  font-family: "Nobile";
+}
+
+.finished-examples > div {
+  margin: 10px;
+}
+
+.finished-examples > div > a {
+  color: black;
+  text-decoration: none;
+}
+
+.finished-examples > div > a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#username-link {
+  color: black;
+  font-family: "Nobile";
+  text-decoration: none;
+}
+
+#username-link:hover {
+  text-decoration: underline;
+  color: white;
 }
 
 .log-in-reminder {
@@ -280,15 +326,16 @@ p {
   text-align: center;
   background-color: #B5D2DC;
   box-shadow: 2px 2px 5px black;
-  margin: 0px 20px 20px 20px;
-  height: 400px;
+  margin: 8px 20px 0px 20px;
+  height: 100%;
   overflow: auto;
   padding: 0 5px 0 5px;
   border-radius: 10px;
 }
 
-.my-challenges > h4 {
+.my-challenges > h3 {
   font-family: "Nobile";
+  text-decoration: underline;
 }
 
 .my-challenges > p {
@@ -345,11 +392,23 @@ p {
   text-align: center;
 }
 
+.in-progress-links-div > h4 {
+  font-family: "Nobile";
+}
+
 .helpful-resources-div {
   grid-column-start: 3;
   grid-column-end: 5;
   text-align: center;
   height: 300px;
+}
+
+.helpful-resources-div > h4 {
+  font-family: "Nobile";
+}
+
+#tip {
+  color: white;
 }
 
 .my-challenge-show-div > div > p > a {
@@ -366,6 +425,7 @@ p {
   box-shadow: 2px 2px 5px black;
   padding: 20px;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .my-challenge-form {
@@ -377,6 +437,10 @@ p {
   margin: auto;
   height: 20px;
   border-radius: 5px;
+}
+
+.my-challenge-form-div > label {
+  font-family: "Nobile";
 }
 
 .error-headline {
@@ -400,21 +464,31 @@ p {
 
 .my-comp-challenge-show-div {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
   background-color: #B5D2DC;
   margin: auto;
   width: 60%;
-  padding: 20px;
+  height: 300px;
   box-shadow: 5px 5px 10px black;
   border-radius: 10px;
 }
 
-.comp-links-div {
-  margin: auto;
+.my-challenge-headline {
+  grid-column: 1/3;
+  margin: 70px 20px 20px 0px;
 }
 
-.comp-links-div >div>p> a {
+.comp-links-div {
+  grid-column: 3/4;
+  margin: 90px 20px 20px 20px;
+}
+
+.comp-links-div > div > p {
+  font-family: "Nobile";
+}
+
+.comp-links-div > div > p > a {
   color: white;
   padding: 10px;
   text-decoration: none;
@@ -475,6 +549,11 @@ p {
   color: black;
 }
 
+.user-index-card > a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
 .user-index-card > a:visited {
   color: #4E008E;
 }
@@ -484,10 +563,12 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
-  margin: 0 20px 20px 20px;
+  width: 70%;
+  margin: auto;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
+  padding: 20px;
 }
 
 .friend-headline {
@@ -531,6 +612,11 @@ p {
   border-radius: 10px;
 }
 
+.friend-challenge-card > a {
+  text-decoration: none;
+  color: blue;
+}
+
 .new-challenge-form-div {
   text-align: center;
   background-color: lightgray;
@@ -543,6 +629,10 @@ p {
 
 .new-challenge-form {
   padding: 10px;
+}
+
+.new-challenge-form > h2, h4{
+  font-family: "Nobile";
 }
 
 .new-challenge-form > form > textarea {

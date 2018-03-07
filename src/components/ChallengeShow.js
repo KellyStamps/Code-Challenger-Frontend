@@ -73,7 +73,13 @@ class ChallengeShow extends React.Component {
       let relevantLinks = this.props.lazy_links.filter(link => link.id === this.props.showChallenge.id)
       
       if (relevantLinks.length > 0) {
-        return relevantLinks.map(link => <Link key={link.id} to={`/users/all/${link.user.id}`}>{link.user.username}<br/></Link>)
+        return relevantLinks.map(link => (
+          <div>
+            <Link key={link.id} id="username-link" to={`/users/all/${link.user.id}`}>{link.user.username}<br/></Link>
+            <a href={`http://${link.git_link}`}>GitHub</a> | <a href={`http://${link.live_link}`}>Deployed</a>
+          </div>
+          )
+        )
       } else {
         return <p>Be the first to complete this!</p>
       }
@@ -86,6 +92,8 @@ class ChallengeShow extends React.Component {
         <div className="challenge-show">
           <h1>{this.props.showChallenge.content}</h1>
           
+          <div className='links-div'><h4>Helpful Documentation Links:</h4> {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <a key={link} href={link}>{link}</a>) : <p>no links yet</p>}</div>
+          
           <div className='show-buttons'>
             {!!this.props.user.favorites.find(fav => fav.challenge.id === this.props.showChallenge.id) ? <Link to={`/users/${this.props.showChallenge.id}/challenges`}>See Your Progress</Link> : <i onClick={this.handleClick} id='favorite' className="material-icons">favorite</i>}
             
@@ -95,11 +103,10 @@ class ChallengeShow extends React.Component {
           </div>
           
           <div className="finished-examples">
-            <h4>See how other users have done this:</h4>
+            <h4>How others have tackled this challenge:</h4>
             {this.getFinishedLinks()}
           </div>
           
-          <div className='links-div'>Links: {this.props.showChallenge.links !== null ? this.props.showChallenge.links.split(', ').map(link => <a key={link} href={link}>{link}</a>) : <p>no links yet</p>}</div>
         </div>
       )
     } else {

@@ -8,22 +8,31 @@ import {addChallenge} from '../actions/challenges'
 class NewChallengeContainer extends React.Component {
   
   state = {
-    showingForm: true
+    showingForm: true,
+    error: ""
   }
   
   handleSubmit = (event) => {
     event.preventDefault()
-    this.setState({showingForm: false})
-    fetch(`${ROOT}challenges`, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify({
-        content: event.target.content.value,
-        links: event.target.links.value,
+    
+    if (event.target.content.value.length > 0 && event.target.links.value.includes(",")) {
+      this.setState({showingForm: false})
+      fetch(`${ROOT}challenges`, {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify({
+          content: event.target.content.value,
+          links: event.target.links.value,
+        })
       })
-    })
-    .then(res => res.json())
-    .then(json => this.props.addChallenge(json.challenge))
+      .then(res => res.json())
+      .then(json => this.props.addChallenge(json.challenge))
+    } else if (event.target.content.value.length <= 0) {
+      this.setState({error: 'content'})
+    } else {
+      this.setState({error: 'links'})
+    }
+    
   }
   
   render(){
@@ -31,7 +40,7 @@ class NewChallengeContainer extends React.Component {
     if (this.props.user) {
       return (
         <div className="new-challenge-form-div">
-          <NewChallengeForm showingForm={this.state.showingForm} handleSubmit={this.handleSubmit} />
+          <NewChallengeForm showingForm={this.state.showingForm} handleSubmit={this.handleSubmit} error={this.state.error} />
         </div>
       )
     } else {

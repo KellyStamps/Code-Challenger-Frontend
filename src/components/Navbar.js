@@ -3,6 +3,7 @@ import { Link} from "react-router-dom";
 import {connect} from 'react-redux';
 
 const NavBar = ({ user, visitProfile }) => {
+  console.log(user)
   return user == null ? (
     <div className="navbar">
       <h1>CODE CHALLENGER</h1>

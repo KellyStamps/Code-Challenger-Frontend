@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.username.length > 0 && this.state.password.length > 0) {
-      fetch(`${ROOT}users`, {
+      fetch(`${ROOT}auth`, {
         method: "POST",
         headers: HEADERS,
         body: JSON.stringify({
@@ -30,7 +30,10 @@ class LoginForm extends React.Component {
         })
       })
         .then(res => res.json())
-        .then(json => this.props.addUser(json));
+        .then(json => {
+          this.props.addUser(json.user)
+          localStorage.setItem('jwt', json.jwt)
+        });
     } else {
       this.setState({error: true})
     }

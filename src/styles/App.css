@@ -1,0 +1,68 @@
+body {
+  background-color: #3399cc;
+  padding-top: 110px;
+}
+
+h1 {
+  font-family: "Nobile";
+}
+
+p {
+  font-family: "Mako";
+}
+
+.error {
+  color: red;
+}
+
+.loggedout-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.small-challenge-list-div {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-left: 10px;
+}
+
+#username-link {
+  color: black;
+  font-family: "Nobile";
+  text-decoration: none;
+}
+
+#username-link:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.log-in-reminder {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  text-align: center;
+}
+
+.log-in-reminder > h1 > a {
+  color: white;
+}
+
+#submit-button {
+  text-align: center;
+  padding: 5px;
+  width: 15%;
+  height: auto;
+  background-color: #001489;
+  color: white;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "Mako";
+  margin: 10px auto auto auto;
+  box-shadow: 2px 2px 5px grey;
+  border: none;
+}

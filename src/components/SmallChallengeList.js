@@ -1,6 +1,6 @@
-import React from 'react'
-import ChallengeCard from './ChallengeCard'
-import {connect} from 'react-redux';
+import React from 'react';
+import ChallengeCard from './ChallengeCard';
+import { connect } from 'react-redux';
 
 class SmallChallengeList extends React.Component {
   render(){

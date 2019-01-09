@@ -1,0 +1,15 @@
+.edit-user-form {
+    background-color: #B5D2DC;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px;
+    grid-column: 1fr;
+    height: 200px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+  
+.edit-user-form > p {
+    font-family: "Nobile";
+}

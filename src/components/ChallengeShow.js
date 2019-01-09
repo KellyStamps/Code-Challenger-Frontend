@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
-import {addFavorite} from '../actions/users'
-import {ROOT, HEADERS} from '../constants/index'
-import {voteUpChallenge, voteDownChallenge } from '../actions/challenges'
+import { Link } from 'react-router-dom';
+import { addFavorite } from '../actions/users';
+import { ROOT, HEADERS } from '../constants/index';
+import { voteUpChallenge, voteDownChallenge } from '../actions/challenges';
+import '../styles/challengeshow.css';
 
 class ChallengeShow extends React.Component {
 

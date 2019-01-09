@@ -1,7 +1,8 @@
 import React from "react";
-import {connect} from 'react-redux';
-import {addUser} from '../actions/users';
-import {ROOT, HEADERS} from '../constants/index'
+import { connect } from 'react-redux';
+import { addUser } from '../actions/users';
+import { ROOT, HEADERS } from '../constants/index';
+import '../styles/loginform.css';
 
 class LoginForm extends React.Component {
   
@@ -63,4 +64,4 @@ class LoginForm extends React.Component {
   } 
 };
 
-export default connect(null, {addUser}) (LoginForm);
+export default connect(null, { addUser }) (LoginForm);

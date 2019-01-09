@@ -1,0 +1,32 @@
+.my-challenges-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.my-challenges {
+    background-color: #B5D2DC;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    grid-column: 1fr;
+    height: 700px;
+    margin: 8px 20px 0px;
+    overflow: auto;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.my-challenges > h3 {
+    font-family: "Nobile";
+    text-decoration: underline;
+}
+
+.my-challenges > p {
+    border-radius: 5px;
+    height: 50px;
+    margin: 15px;
+}
+
+.my-challenges > p:hover {
+    background-color: white;
+    color: white;
+}

@@ -1,10 +1,11 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link, Redirect} from 'react-router-dom'
-import HelpfulResources from './HelpfulResources'
-import {ROOT} from '../constants/index'
-import CompletedChallengeForm from './CompletedChallengeForm'
-import {deleteInProgressChallenge} from '../actions/users'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import HelpfulResources from './HelpfulResources';
+import { ROOT } from '../constants/index';
+import CompletedChallengeForm from './CompletedChallengeForm';
+import { deleteInProgressChallenge } from '../actions/users';
+import '../style/myinprogresschallengeshow.css';
 
 class MyInProgressChallengeShow extends React.Component {
   
@@ -28,7 +29,6 @@ class MyInProgressChallengeShow extends React.Component {
   }
   
   render(){
-    
     if (this.state.redirect === "forDelete") {
       return <Redirect to={`/users/${this.props.user.id}/challenges`}/>
     } else if (this.state.redirect === "forComplete") {
@@ -67,4 +67,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps, { deleteInProgressChallenge})(MyInProgressChallengeShow)
+export default connect(mapStateToProps, { deleteInProgressChallenge })(MyInProgressChallengeShow);

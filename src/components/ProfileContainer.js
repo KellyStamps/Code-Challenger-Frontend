@@ -1,9 +1,9 @@
 import React from "react";
-import EditProfileForm from './EditProfileForm'
+import EditProfileForm from './EditProfileForm';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import {ROOT, HEADERS} from '../constants/index'
-import {updateUser} from '../actions/users'
+import {ROOT, HEADERS} from '../constants/index';
+import {updateUser} from '../actions/users';
 
 class ProfileContainer extends React.Component {
   
@@ -30,7 +30,6 @@ class ProfileContainer extends React.Component {
   }
   
   render() {
-
     return this.props.user ? (
       <div className="profile-container">
         <div className='basic-info'>
@@ -49,4 +48,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps, {updateUser}) (ProfileContainer);
+export default connect(mapStateToProps, { updateUser }) (ProfileContainer);

@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/newchallengeform.css';
 
 const NewChallengeForm = ({ handleSubmit, showingForm, error }) => {
   return showingForm ? (
@@ -19,7 +20,7 @@ const NewChallengeForm = ({ handleSubmit, showingForm, error }) => {
         <input id="new-submit" type="submit" />
       </form>
     </div>
-  ): (
+  ) : (
     <div className="new-challenge-form">
       <h4>Thanks for submitting a new project idea!</h4>
     </div>

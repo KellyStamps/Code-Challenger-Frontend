@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import "./styles/index.css";
 import { createStore, combineReducers } from 'redux';
 import userReducer from './reducers/userReducer'
 import challengeReducer from './reducers/challengeReducer'

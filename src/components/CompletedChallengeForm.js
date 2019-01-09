@@ -1,7 +1,7 @@
-import React from 'react'
-import {ROOT, HEADERS} from '../constants/index'
-import {completeChallenge} from '../actions/users'
-import {connect} from 'react-redux'
+import React from 'react';
+import { ROOT, HEADERS } from '../constants/index';
+import { completeChallenge } from '../actions/users';
+import { connect } from 'react-redux';
 
 class CompletedChallengeForm extends React.Component {
   
@@ -45,7 +45,6 @@ class CompletedChallengeForm extends React.Component {
   }
   
   render() {
-
     return (
       <div className='my-challenge-form-div'>
         {this.state.error ? <h3 className='error-headline'>Please submit both links to complete challenge</h3> : null}

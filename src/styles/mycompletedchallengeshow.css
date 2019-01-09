@@ -1,0 +1,32 @@
+.my-comp-challenge-show-div {
+    background-color: #B5D2DC;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    height: 300px;
+    margin: auto;
+    width: 80%;
+}
+
+.comp-headline {
+    grid-column: 1/3;
+    margin: 70px 20px 20px 80px;
+}
+
+.comp-links-div {
+    grid-column: 3/6;
+    margin: 90px 0px 0px 0px;
+    padding-left: 50px;
+}
+
+.comp-links-div > div > div {
+    font-family: "Nobile";
+}
+
+.comp-links-div > div > div > a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}

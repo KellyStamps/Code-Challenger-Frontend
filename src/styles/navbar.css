@@ -1,0 +1,39 @@
+.navbar {
+    background: linear-gradient(to right, #001489, #636EA0);
+    box-shadow: 2px 2px 15px black;
+    color: white;
+    display: grid;
+    font-family: "Nobile";
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+.navbar > h1 {
+    grid-column: 1/2;
+}
+
+.navbar > ul {
+    grid-column: 2/4;
+    list-style-type: none;
+    margin: auto;
+}
+
+.navbar > ul > li {
+    display: inline;
+    padding: 20px;
+}
+
+.navbar > ul > li > a {
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navbar > ul > li > a:hover {
+    background-color: white;
+    color: black;
+}

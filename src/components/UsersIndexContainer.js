@@ -1,7 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import UserIndexCard from './UserIndexCard'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import UserIndexCard from './UserIndexCard';
+import '../styles/usersindex.css';
 
 class UsersIndexContainer extends React.Component {
   
@@ -42,7 +43,6 @@ class UsersIndexContainer extends React.Component {
       </div>
      )
     }
-    
   }
 }
 
@@ -50,5 +50,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-
-export default connect(mapStateToProps)(UsersIndexContainer)
+export default connect(mapStateToProps)(UsersIndexContainer);

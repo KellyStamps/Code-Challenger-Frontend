@@ -1,7 +1,7 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const UserIndexCard = ({user}) => {
+const UserIndexCard = ({ user }) => {
   return(
     <div className='user-index-card'>
       <Link to={`/users/all/${user.user.id}`}><h4>{user.user.username}</h4></Link>
@@ -10,4 +10,4 @@ const UserIndexCard = ({user}) => {
   )
 }
 
-export default UserIndexCard
+export default UserIndexCard;

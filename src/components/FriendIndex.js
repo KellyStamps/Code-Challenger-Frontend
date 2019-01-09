@@ -1,10 +1,11 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {ROOT, HEADERS} from '../constants/index'
-import {addFriend, deleteFriend} from '../actions/users'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ROOT, HEADERS } from '../constants/index';
+import { addFriend, deleteFriend } from '../actions/users';
+import '../styles/users/friend_index.css';
 
-class UsersIndexShow extends React.Component {
+class FriendIndex extends React.Component {
   
   handleAddFriend = (event) => {
     fetch(`${ROOT}friendships`, {
@@ -36,7 +37,6 @@ class UsersIndexShow extends React.Component {
   }
 
   render(){
-
     if (this.props.user) {
       let friend = this.props.allUsers.find(friend => friend.user.id === parseInt(this.props.match.params.id, 10))
       
@@ -76,13 +76,11 @@ class UsersIndexShow extends React.Component {
         </div>
       )
     }
-
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps, {addFriend, deleteFriend})(UsersIndexShow)
+export default connect(mapStateToProps, { addFriend, deleteFriend })(FriendIndex);

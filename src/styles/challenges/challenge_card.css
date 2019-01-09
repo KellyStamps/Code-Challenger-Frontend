@@ -1,0 +1,30 @@
+.challenge-card {
+    background-color: #B5D2DC;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px black;
+    color: white;
+    grid-column: 1fr;
+    height: 200px;
+    margin: 0 10px 10px;
+    padding: 40px;
+    text-align: center;
+}
+
+.challenge-card > a {
+    color: white;
+    text-decoration: none;
+}
+
+.challenge-card > a:visited {
+    color: #4E008E;
+    text-decoration: none;
+}
+
+.challenge-card:hover {
+    background-color: white;
+    color: purple;
+}
+
+.challenge-card:hover > a {
+    color: purple;
+}

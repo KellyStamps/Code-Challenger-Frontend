@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
-import {showChallenge} from '../actions/challenges';
-import {Link} from 'react-router-dom';
+import { showChallenge } from '../actions/challenges';
+import { Link } from 'react-router-dom';
+import '../styles/challenges/challenge_card.css';
 
-class ChallengeCard extends React.Component {
-  
+class ChallengeCard extends React.Component { 
   render () {
     return (
       <div className="challenge-card">
@@ -16,7 +16,6 @@ class ChallengeCard extends React.Component {
     );
   }
 };
-
 
 const mapStateToProps = state => {
   return {...state.users, ...state.challenges}

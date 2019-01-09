@@ -1,0 +1,36 @@
+.new-challenge-form-div {
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+}
+  
+.new-challenge-form {
+    padding: 10px;
+}
+
+.new-challenge-form > h2, h4 {
+    font-family: "Nobile";
+}
+
+.new-challenge-form > form > textarea {
+    border-radius: 5px;
+    display: block;
+    font-size: 13px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+#new-submit {
+    background-color: #001489;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 5px black;
+    color: white;
+    font-family: "Mako";
+    font-size: 13px;
+    padding: 8px 20px 8px 20px;
+}

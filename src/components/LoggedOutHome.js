@@ -1,9 +1,8 @@
 import React from "react";
 import LoginForm from "./LoginForm";
 import SmallChallengeList from "./SmallChallengeList";
-import AuthAdapter from '../api/AuthAdapter'
-import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom';
+import AuthAdapter from '../api/AuthAdapter';
+import {connect} from 'react-redux';
 
 class LoggedOutHome extends React.Component {
   
@@ -29,7 +28,5 @@ class LoggedOutHome extends React.Component {
 const mapStateToProps = (state) => {
   return {...state.users}
 }
-
-// (<Redirect to={`/users/${this.props.user.id}/challenges`}/>)
 
 export default connect (mapStateToProps)(LoggedOutHome);

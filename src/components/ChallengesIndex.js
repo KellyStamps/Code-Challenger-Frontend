@@ -1,9 +1,10 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../styles/challenges/challenges_index.css';
 
-class ChallengeList extends React.Component {
+class ChallengesIndex extends React.Component {
 
   state = {
     searchTerm: '',
@@ -33,7 +34,7 @@ class ChallengeList extends React.Component {
         })
 
         list = this.props.challenges.filter(chal => {
-            return ids.indexOf(chal.id) > -1
+          return ids.indexOf(chal.id) > -1
         }).sort((a,b) => {
           return b.rating - a.rating
         });
@@ -48,7 +49,6 @@ class ChallengeList extends React.Component {
 
   render() {
     if (this.props.user) {
-
       return (
       <div className="challenge-list">
         <div className='filter-cards'>
@@ -81,4 +81,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps)(ChallengeList);
+export default connect(mapStateToProps)(ChallengesIndex);

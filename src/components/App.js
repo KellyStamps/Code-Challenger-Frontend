@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom'
-import {fetchChallenges} from '../actions/challenges'
-import {fetchUsers} from '../actions/users'
-import {ROOT} from '../constants/index'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { fetchChallenges } from '../actions/challenges';
+import { fetchUsers } from '../actions/users';
+import { ROOT } from '../constants/index';
 import NavBar from "./Navbar";
-import ChallengeShow from "./ChallengeShow";
-import MyInProgressChallengeShow from "./MyInProgressChallengeShow";
-import MyCompletedChallengeShow from "./MyCompletedChallengeShow";
-import MyChallengesContainer from "./MyChallengesContainer";
+import SingleChallenge from "./SingleChallenge";
+import InProgressChallenges from "./InProgressChallenges";
+import CompletedChallenges from "./CompletedChallenges";
+import SavedChallengesContainer from "./SavedChallengesContainer";
 import ProfileContainer from "./ProfileContainer";
-import ChallengeList from "./ChallengeList";
+import ChallengesIndex from "./ChallengesIndex";
 import LoggedOutHome from "./LoggedOutHome";
 import UsersIndexContainer from "./UsersIndexContainer";
-import UsersIndexShow from "./UsersIndexShow";
-import NewChallengeContainer from "./NewChallengeContainer";
-import "./App.css";
+import FriendIndex from "./FriendIndex";
+import CreateChallengeContainer from "./CreateChallengeContainer";
+import "../styles/App.css";
 
 
 class App extends Component {
@@ -34,33 +34,22 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-          
         <Switch>
-          <Route exact path="/" component={LoggedOutHome}/>
-          
-          <Route exact path="/challenges/new" component={NewChallengeContainer} />
-          
+          <Route exact path="/" component={ LoggedOutHome }/>
+          <Route exact path="/challenges/new" component={ CreateChallengeContainer } />
           <Route
             path="/challenges/:id"
             render={props => {
             let challenge = this.props.challenges.find(chal => chal.id === props.match.params.id)   
-            return <ChallengeShow challenge={challenge}/>}}
+            return <SingleChallenge challenge={ challenge }/>}}
             />
-            
-          <Route exact path="/challenges" component={ChallengeList} />
-          
-          <Route path='/users/:id/challenges/inprogress/:id' component={MyInProgressChallengeShow}/>
-          
-          <Route path='/users/:id/challenges/completed/:id' component={MyCompletedChallengeShow}/>
-          
-          <Route path="/users/:id/challenges" component={MyChallengesContainer}/>
-          
-          <Route exact path="/users/all/:id" component={UsersIndexShow}/>
-          
-          <Route exact path="/users/all" component={UsersIndexContainer}/>
-          
-          <Route path="/users/:id" component={ProfileContainer}/>
-
+          <Route exact path="/challenges" component={ ChallengesIndex } />
+          <Route path='/users/:id/challenges/inprogress/:id' component={ InProgressChallenges }/>
+          <Route path='/users/:id/challenges/completed/:id' component={ CompletedChallenges }/>
+          <Route path="/users/:id/challenges" component={ SavedChallengesContainer }/>
+          <Route exact path="/users/all/:id" component={ FriendIndex }/>
+          <Route exact path="/users/all" component={ UsersIndexContainer }/>
+          <Route path="/users/:id" component={ ProfileContainer }/>
         </Switch>
       </div>
     );
@@ -71,4 +60,4 @@ const mapStateToProps =(state)=> {
   return {...state.challenges, ...state.allUsers}
 }
 
-export default withRouter(connect(mapStateToProps, {fetchChallenges, fetchUsers})(App));
+export default withRouter(connect(mapStateToProps, { fetchChallenges, fetchUsers })(App));

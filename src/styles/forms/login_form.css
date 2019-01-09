@@ -1,0 +1,35 @@
+.loginform {
+    background-color: #B5D2DC;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    display: inline-block;
+    font-family: "Nobile";
+    grid-column-end: 6;
+    grid-column-start: 4;
+    height: 200px;
+    margin-right: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+#username,
+#password, 
+#bio {
+    border-radius: 5px;
+    display: block;
+    height: 20px;
+    margin: 10px auto;
+    padding-left: 5px;
+    width: 50%;
+}
+
+#submit {
+    background-color: #001489;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    color: white;
+    font-family: "Mako";
+    font-size: 13px;
+    padding: 2px 15px 5px 15px;
+}

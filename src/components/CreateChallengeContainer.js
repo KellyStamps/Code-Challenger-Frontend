@@ -1,11 +1,11 @@
-import React from 'react'
-import NewChallengeForm from './NewChallengeForm'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {ROOT, HEADERS} from '../constants/index'
-import {addChallenge} from '../actions/challenges'
+import React from 'react';
+import CreateChallengeForm from './CreateChallengeForm';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ROOT, HEADERS } from '../constants/index';
+import { addChallenge } from '../actions/challenges';
 
-class NewChallengeContainer extends React.Component {
+class CreateChallengeContainer extends React.Component {
   
   state = {
     showingForm: true,
@@ -34,15 +34,13 @@ class NewChallengeContainer extends React.Component {
     } else {
       this.setState({error: 'http'})
     }
-    
   }
   
   render(){
-    
     if (this.props.user) {
       return (
         <div className="new-challenge-form-div">
-          <NewChallengeForm showingForm={this.state.showingForm} handleSubmit={this.handleSubmit} error={this.state.error} />
+          <CreateChallengeForm showingForm={this.state.showingForm} handleSubmit={this.handleSubmit} error={this.state.error} />
         </div>
       )
     } else {
@@ -59,4 +57,4 @@ const mapStateToProps = state => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps,{addChallenge})(NewChallengeContainer) 
+export default connect(mapStateToProps,{ addChallenge })(CreateChallengeContainer);

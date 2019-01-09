@@ -1,0 +1,29 @@
+.users-index {
+    text-align: center;
+}
+
+.user-search {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-search > input {
+    border-radius: 5px;
+    font-family: "Nobile";
+    font-size: 15px;
+    grid-column: 2/3;
+    height: 30px;
+    padding-left: 10px;
+    width: 90%;
+}
+
+.users-index-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    height: 900px;
+    margin: 0 10px;
+    text-align: center;
+}

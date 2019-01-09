@@ -7,8 +7,8 @@ import '../styles/challenges/challenge_card.css';
 class ChallengeCard extends React.Component { 
   render () {
     return (
-      <div className="challenge-card">
-        <Link to={`/challenges/${this.props.challenge.id}`} >
+      <div className="challenge__card">
+        <Link to={`/challenges/${this.props.challenge.id}`} className="challenge__card--link" >
           <p onClick={() => this.props.showChallenge(this.props.challenge)}>{this.props.challenge.content}</p>
         </Link>
         <p>Rating: {this.props.challenge.rating}/10</p>

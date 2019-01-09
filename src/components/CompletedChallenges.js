@@ -9,16 +9,16 @@ class CompletedChallenges extends React.Component {
       let wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id,10))
       
       return (
-        <div className='my-comp-challenge-show-div'>
-          <div className='comp-headline'>
+        <div className='completed-challenges__container'>
+          <div className='completed-challenges__headline'>
             <h1>{wholeChallenge.challenge.content}</h1>
             <p id='show-rating'>Rating: {wholeChallenge.challenge.rating}/10</p>
           </div>
             
-          <div className='comp-links-div'>
+          <div className='completed-challenges__links-container'>
             <div>
-              <div>See it on Github: <a href={`http://${wholeChallenge.git_link}`} target='_blank'>{wholeChallenge.git_link }</a></div>
-              <div>See it in Action: <a href={`http://${wholeChallenge.live_link}`} target='_blank'>{wholeChallenge.live_link }</a></div>
+              <div className='completed-challenges__link'>See it on Github: <a href={`http://${wholeChallenge.git_link}`} target='_blank'>{wholeChallenge.git_link }</a></div>
+              <div className='completed-challenges__link'>See it in Action: <a href={`http://${wholeChallenge.live_link}`} target='_blank'>{wholeChallenge.live_link }</a></div>
             </div> 
           </div>  
         </div>

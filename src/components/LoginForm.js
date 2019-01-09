@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginform">
-      {this.state.error ? <p className='error-headline'>Please provide a username and password to login</p> : null}
+      {this.state.error ? <p className='error-message'>Please provide a username and password to login</p> : null}
         <h3>Login or Sign Up to Start!</h3>
         <form onSubmit={this.handleSubmit}>
           <input 

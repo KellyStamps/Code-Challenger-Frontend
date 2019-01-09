@@ -1,4 +1,4 @@
-.new-challenge-form-div {
+.create-challenge__container {
     background-color: lightgray;
     border-radius: 10px;
     box-shadow: 3px 3px 10px;
@@ -8,15 +8,15 @@
     width: 50%;
 }
   
-.new-challenge-form {
+.create-challenge__form-container {
     padding: 10px;
 }
 
-.new-challenge-form > h2, h4 {
+.create-challenge__form-headline {
     font-family: "Nobile";
 }
 
-.new-challenge-form > form > textarea {
+.create-challenge__form-textarea {
     border-radius: 5px;
     display: block;
     font-size: 13px;
@@ -24,7 +24,7 @@
     padding: 10px;
 }
 
-#new-submit {
+.create-challenge__form-submit {
     background-color: #001489;
     border-radius: 5px;
     border: none;

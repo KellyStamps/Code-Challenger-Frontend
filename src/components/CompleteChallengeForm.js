@@ -2,6 +2,7 @@ import React from 'react';
 import { ROOT, HEADERS } from '../constants/index';
 import { completeChallenge } from '../actions/users';
 import { connect } from 'react-redux';
+import '../styles/forms/complete_challenge_form.css';
 
 class CompleteChallengeForm extends React.Component {
   
@@ -46,14 +47,14 @@ class CompleteChallengeForm extends React.Component {
   
   render() {
     return (
-      <div className='my-challenge-form-div'>
-        {this.state.error ? <h3 className='error-headline'>Please submit both links to complete challenge</h3> : null}
-        <label htmlFor='my-challenge-form'>Finished with this project? Submit your github and deployed links here!</label>
-        <form id='my-challenge-form' className='my-challenge-form' onSubmit={this.handleSubmit}>
+      <div className='completed-challenge-form__container'>
+        {this.state.error ? <h3 className='error-message'>Please submit both links to complete challenge</h3> : null}
+        <label htmlFor='completed-challenge-form'>Finished with this project? Submit your github and deployed links here!</label>
+        <form id='completed-challenge-form' className='completed-challenge-form' onSubmit={this.handleSubmit}>
           <p>GitHub.com/YourRepoName</p>
-          <input onChange={this.handleChange} type='text' className='finished-links' id='github' />
+          <input onChange={this.handleChange} type='text' className='completed-challenge-form__links' id='github' />
           <p>Your-File-Name.HerokuApp.com</p>
-          <input onChange={this.handleChange} type='text' className='finished-links' id='deployed'/>
+          <input onChange={this.handleChange} type='text' className='completed-challenge-form__links' id='deployed'/>
           <input id='submit-button' type='submit'/>
         </form>
       </div>

@@ -1,27 +1,27 @@
-.challenge-list  {
+.challenges-index__container  {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 10px;
 }
 
-.filter-cards {
+.challenges-index__filter-container {
     color: white;
     font-family: "Nobile";
     margin: auto;
 }
 
-#filter-checkbox {
+#challenges-index__filter-checkbox {
     margin-left: 15px;
 }
 
-.search {
+.challenges-index__search-container {
     grid-column: 2 /3;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.search > input {
+.challenges-index__search-container > input {
     border-radius: 5px;
     font-family: "Nobile";
     font-size: 15px;
@@ -30,13 +30,13 @@
     width: 90%;
 }
 
-.new-challenge-link-div {
+.challenges-index__create-challenge-container {
     grid-column: 3/4;
     text-align: center;
     margin-top: 10px;
 }
 
-.new-challenge-link-div > a {
+.challenges-index__create-challenge-link {
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 4px black;
@@ -47,7 +47,7 @@
     text-decoration: none;
 }
 
-.new-challenge-link-div > a:hover {
+.challenges-index__create-challenge-link:hover {
     background-color: #001489;
     color: white;
 }

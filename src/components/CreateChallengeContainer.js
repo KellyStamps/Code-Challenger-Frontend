@@ -39,7 +39,7 @@ class CreateChallengeContainer extends React.Component {
   render(){
     if (this.props.user) {
       return (
-        <div className="new-challenge-form-div">
+        <div className="create-challenge__form">
           <CreateChallengeForm showingForm={this.state.showingForm} handleSubmit={this.handleSubmit} error={this.state.error} />
         </div>
       )

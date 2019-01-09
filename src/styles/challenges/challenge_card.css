@@ -1,4 +1,4 @@
-.challenge-card {
+.challenge__card {
     background-color: #B5D2DC;
     border-radius: 10px;
     box-shadow: 3px 3px 10px black;
@@ -10,21 +10,21 @@
     text-align: center;
 }
 
-.challenge-card > a {
-    color: white;
-    text-decoration: none;
-}
-
-.challenge-card > a:visited {
-    color: #4E008E;
-    text-decoration: none;
-}
-
-.challenge-card:hover {
+.challenge__card:hover {
     background-color: white;
     color: purple;
 }
 
-.challenge-card:hover > a {
+.challenge__card--link {
+    color: white;
+    text-decoration: none;
+}
+
+.challenge__card--link:visited {
+    color: #4E008E;
+    text-decoration: none;
+}
+
+.challenge__card--link:hover {
     color: purple;
 }

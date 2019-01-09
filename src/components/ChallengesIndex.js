@@ -50,18 +50,18 @@ class ChallengesIndex extends React.Component {
   render() {
     if (this.props.user) {
       return (
-      <div className="challenge-list">
-        <div className='filter-cards'>
-          <label htmlFor='filter-checkbox'>Only projects I have not done</label>
-          <input onChange={this.handleChange} id='filter-checkbox' type='checkbox'/>
+      <div className="challenges-index__container">
+        <div className='challenges-index__filter-container'>
+          <label htmlFor='challenges-index__filter-checkbox'>Only projects I have not done</label>
+          <input onChange={this.handleChange} id='challenges-index__filter-checkbox' type='checkbox'/>
         </div>
 
-        <div className='search'>
+        <div className='challenges-index__search-container'>
           <input onChange={this.handleChange} value={this.state.searchTerm} id='search' type='text' placeholder='Search Challenges...' />
         </div>
 
-        <div className='new-challenge-link-div'>
-          <Link to='/challenges/new'>New Challenge</Link>
+        <div className='challenges-index__create-challenge-container'>
+          <Link to='/challenges/new' class="challenges-index__create-challenge-link">New Challenge</Link>
         </div>
 
           {this.renderHelper().map(chal => (<ChallengeCard challenge={chal} key={chal.id}/>))}

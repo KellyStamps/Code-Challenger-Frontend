@@ -1,0 +1,24 @@
+.completed-challenge-form__container {
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    grid-column: 2/5;
+    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.completed-challenge-form__container{
+    padding: 10px;
+}
+
+.completed-challenge-form__container > input {
+    border-radius: 5px;
+    display: block;
+    height: 20px;
+    margin: auto;
+}
+
+.completed-challenge-form__links {
+    width: 300px;
+}

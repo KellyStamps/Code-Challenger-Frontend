@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import HelpfulResources from './HelpfulResources';
 import { ROOT } from '../constants/index';
-import CompletedChallengeForm from './CompletedChallengeForm';
+import CompleteChallengeForm from './CompleteChallengeForm';
 import { deleteInProgressChallenge } from '../actions/users';
-import '../style/myinprogresschallengeshow.css';
+import '../styles/challenges/in_progress_challenges.css';
 
-class MyInProgressChallengeShow extends React.Component {
+class InProgressChallenges extends React.Component {
   
   state = {
     redirect: ''
@@ -51,7 +51,7 @@ class MyInProgressChallengeShow extends React.Component {
            
            <HelpfulResources/>
            
-           <CompletedChallengeForm id={wholeChallenge.id} parentSubmit={this.handleCompletedForm}/>
+           <CompleteChallengeForm id={wholeChallenge.id} parentSubmit={this.handleCompletedForm}/>
            
          </div>
        )
@@ -67,4 +67,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps, { deleteInProgressChallenge })(MyInProgressChallengeShow);
+export default connect(mapStateToProps, { deleteInProgressChallenge })(InProgressChallenges);

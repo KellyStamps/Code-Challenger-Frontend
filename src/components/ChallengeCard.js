@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { showChallenge } from '../actions/challenges';
 import { Link } from 'react-router-dom';
-import '../styles/challengecard.css';
+import '../styles/challenges/challenge_card.css';
 
 class ChallengeCard extends React.Component { 
   render () {

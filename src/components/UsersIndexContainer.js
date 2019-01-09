@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import UserIndexCard from './UserIndexCard';
-import '../styles/usersindex.css';
+import UserCard from './UserCard';
+import '../styles/users/users_index_container.css';
 
 class UsersIndexContainer extends React.Component {
   
@@ -32,7 +32,7 @@ class UsersIndexContainer extends React.Component {
           </div>
           
         <div className='users-index-container'>
-          {this.renderHelper().map(user=> <UserIndexCard key={user.user.id} user={user}/>)}
+          {this.renderHelper().map(user=> <UserCard key={user.user.id} user={user}/>)}
           </div>
         </div>
       )

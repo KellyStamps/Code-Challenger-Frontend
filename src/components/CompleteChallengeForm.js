@@ -3,7 +3,7 @@ import { ROOT, HEADERS } from '../constants/index';
 import { completeChallenge } from '../actions/users';
 import { connect } from 'react-redux';
 
-class CompletedChallengeForm extends React.Component {
+class CompleteChallengeForm extends React.Component {
   
   state = {
     github: '',
@@ -61,4 +61,4 @@ class CompletedChallengeForm extends React.Component {
   }
 }
 
-export default connect(null,{completeChallenge}) (CompletedChallengeForm)
+export default connect(null,{ completeChallenge }) (CompleteChallengeForm);

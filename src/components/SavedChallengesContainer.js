@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../styles/mychallenges.css';
+import '../styles/challenges/saved_challenges_container.css';
 
-class MyChallengesContainer extends React.Component {
+class SavedChallengesContainer extends React.Component {
   
   render() {
     if (this.props.user && this.props.user.favorites) {
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps)(MyChallengesContainer);
+export default connect(mapStateToProps)(SavedChallengesContainer);

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { addFavorite } from '../actions/users';
 import { ROOT, HEADERS } from '../constants/index';
 import { voteUpChallenge, voteDownChallenge } from '../actions/challenges';
-import '../styles/challengeshow.css';
+import '../styles/challenges/single_challenge.css';
 
-class ChallengeShow extends React.Component {
+class SingleChallenge extends React.Component {
 
   handleClick = (event) => {
     switch (event.target.id) {
@@ -124,4 +124,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges, ...state.showChallenge}
 }
 
-export default connect(mapStateToProps, {addFavorite, voteUpChallenge, voteDownChallenge})(ChallengeShow);
+export default connect(mapStateToProps, {addFavorite, voteUpChallenge, voteDownChallenge})(SingleChallenge);

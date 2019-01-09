@@ -2,9 +2,9 @@ import React from "react";
 import ChallengeCard from "./ChallengeCard";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../styles/challengelist.css';
+import '../styles/challenges/challenges_index.css';
 
-class ChallengeList extends React.Component {
+class ChallengesIndex extends React.Component {
 
   state = {
     searchTerm: '',
@@ -81,4 +81,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps)(ChallengeList);
+export default connect(mapStateToProps)(ChallengesIndex);

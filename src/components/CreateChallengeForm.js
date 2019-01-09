@@ -1,7 +1,7 @@
 import React from "react";
-import '../styles/newchallengeform.css';
+import '../styles/forms/create_challenge_form.css';
 
-const NewChallengeForm = ({ handleSubmit, showingForm, error }) => {
+const CreateChallengeForm = ({ handleSubmit, showingForm, error }) => {
   return showingForm ? (
     <div className="new-challenge-form">
     
@@ -27,4 +27,4 @@ const NewChallengeForm = ({ handleSubmit, showingForm, error }) => {
   )
 };
 
-export default NewChallengeForm;
+export default CreateChallengeForm;

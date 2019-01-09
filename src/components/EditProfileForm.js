@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/editprofileform.css';
+import '../styles/forms/edit_profile_form.css';
 
 const EditProfileForm = ({ user, handleSubmit, showingForm }) => {
   return showingForm ? (

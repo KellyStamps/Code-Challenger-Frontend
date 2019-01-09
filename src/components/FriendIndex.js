@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ROOT, HEADERS } from '../constants/index';
 import { addFriend, deleteFriend } from '../actions/users';
-import '../styles/usersindexfriend.css';
+import '../styles/users/friend_index.css';
 
-class UsersIndexShow extends React.Component {
+class FriendIndex extends React.Component {
   
   handleAddFriend = (event) => {
     fetch(`${ROOT}friendships`, {
@@ -83,4 +83,4 @@ const mapStateToProps = (state) => {
   return {...state.users, ...state.challenges}
 }
 
-export default connect(mapStateToProps, { addFriend, deleteFriend })(UsersIndexShow);
+export default connect(mapStateToProps, { addFriend, deleteFriend })(FriendIndex);

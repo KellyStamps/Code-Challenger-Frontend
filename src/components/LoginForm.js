@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { addUser } from '../actions/users';
 import { ROOT, HEADERS } from '../constants/index';
-import '../styles/loginform.css';
+import '../styles/forms/login_form.css';
 
 class LoginForm extends React.Component {
   

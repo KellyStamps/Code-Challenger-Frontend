@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './styles/mycompletedchallengeshow.css';
+import '../styles/challenges/completed_challenges.css';
 
-class MyInProgressChallengeShow extends React.Component {
+class CompletedChallenges extends React.Component {
   render(){
     if (this.props.user) {
       let wholeChallenge = this.props.user.favorites.find(fav => fav.challenge.id === parseInt(this.props.match.params.id,10))
@@ -35,4 +35,4 @@ const mapStateToProps = (state) => {
   return {...state.users}
 }
 
-export default connect(mapStateToProps)(MyInProgressChallengeShow);
+export default connect(mapStateToProps)(CompletedChallenges);

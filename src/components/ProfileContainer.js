@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import {ROOT, HEADERS} from '../constants/index';
 import {updateUser} from '../actions/users';
+import '../styles/users/profile_container.css';
 
 class ProfileContainer extends React.Component {
   
